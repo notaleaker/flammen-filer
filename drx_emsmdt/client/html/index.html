@@ -1,0 +1,234 @@
+<html>
+
+<head>
+    <meta type="text/html" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Læge Tablet</title>
+</head>
+
+<body>
+    <div id='app' data-app>
+        <v-app id='DRX_EMSMDT' v-show='isOpen'>
+            <v-main>
+                <div id='container'>
+                    <div id='content'>
+
+                        <div id='navigation'>
+                            <div class='nav-links'>
+                                <v-btn v-for='(page, pageIndex) in Pages' :key='pageIndex' @click='ChangePage(page)' :disabled='CurrentPage == page' dark plain tile>{{page}}</v-btn>
+                            </div>
+                            <div class='nav-content'>
+                                <h4>Læge</h4>
+                                <img src='images/ems.png'>
+                            </div>
+                        </div>
+
+                        <div id='page-content'>
+                            <div v-if='CurrentPage == "Current"'>
+                                <h5 v-if='status == "Available"' class='current-statustext' style='color: rgb(80, 250, 80);'>{{status}}</h5>
+                                <h5 v-if='status == "Unavailable"' class='current-statustext' style='color: rgb(250, 80, 80);'>{{status}}</h5>
+                                <h5 v-if='status == "Busy"' class='current-statustext' style='color: rgb(250, 120, 10);'>{{status}}</h5>
+                                <div class='current-statusBtns'>
+                                    <v-btn @click='UpdateStatusAvailable("Available")' plain tile class='current-btn1'>Ledig</v-btn>
+                                    <v-btn @click='UpdateStatusUnavailable("Unavailable")' plain tile class='current-btn2'>Ikke tilgængelig</v-btn>
+                                    <v-btn @click='UpdateStatusBusy("Busy")' plain tile class='current-btn3'>Travlt</v-btn>
+                                </div>
+                                <div class='current-nocall' v-if='current_call.incident == null'>
+                                    <h3>INGEN OPKALD ACCEPTERES</h3>
+                                </div>
+                                <div class='current-call' v-if='current_call.incident'>
+                                    <div class='current-call-tables'>
+                                        <table>
+                                            <h4>GRUNDLÆGGENDE OPLYSNINGER</h4>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Type</th>
+                                                <th>Date</th>
+                                                <th>Location</th>
+                                            </tr>
+                                            <tr>
+                                                <td>{{current_call.incident}}</td>
+                                                <td>{{current_call.type}}</td>
+                                                <td>{{current_call.date}}</td>
+                                                <td>{{current_call.location}}</td>
+                                            </tr>
+                                        </table>
+                                        <table>
+                                            <h4>OPLYSNINGER OM OPKRINGER</h4>
+                                            <tr>
+                                                <th>Navn</th>
+                                                <th>Telefonnummer</th>
+                                            </tr>
+                                            <tr>
+                                                <td>{{current_call.charname}}</td>
+                                                <td>{{current_call.phonenumber}}</td>
+                                            </tr>
+                                        </table>
+                                        <table>
+                                            <tr>
+                                                <th>Detaljer</th>
+                                            </tr>
+                                            <tr>
+                                                <td>{{current_call.message}}</td>
+                                            </tr>
+                                        </table>
+                                        <table>
+                                            <tr>
+                                                <th>Tilgængelige handlinger</th>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <v-btn v-if='current_call.incident' @click='SetWaypoint()' small icon plain>
+                                                        <v-icon>fas fa-map-marker-alt</v-icon>
+                                                    </v-btn>
+                                                    <v-btn v-if='current_call.incident' @click='respondOverlay =! respondOverlay' small icon plain>
+                                                        <v-icon>fas fa-edit</v-icon>
+                                                    </v-btn>
+                                                    <v-btn v-if='current_call.incident' @click='DeleteCall()' small icon plain>
+                                                        <v-icon>fas fa-trash</v-icon>
+                                                    </v-btn>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div v-if='CurrentPage == "Calls"'>
+                                <div class='calls-call'>
+                                    <table>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Type</th>
+                                            <th>Detaljer</th>
+                                            <th>Dato</th>
+                                            <th>Lokation</th>
+                                            <th>Handlinger</th>
+                                        </tr>
+                                        <tr v-for='(calls, index) in calls' :key='index'>
+                                            <td>{{calls.incident}}</td>
+                                            <td>{{calls.type}}</td>
+                                            <td>{{calls.message}}</td>
+                                            <td>{{calls.date}}</td>
+                                            <td>{{calls.location}}</td>
+                                            <td>
+                                                <v-btn v-if='current_call.incident == null' @click='AttachCall(index)' icon plain>
+                                                    <v-icon>fas fa-link</v-icon>
+                                                </v-btn>
+                                                <v-btn v-if='current_call.incident' @click='DetachCall()' icon plain>
+                                                    <v-icon>fas fa-unlink</v-icon>
+                                                </v-btn>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div v-if='CurrentPage == "Database"'>
+                                <div class='db-user'>
+                                    <h4>NAVN:</h4>
+                                    <h5 v-if='selected_person.firstname == null'>...</h5>
+                                    <h5 v-else-if='selected_person.firstname'>{{selected_person.firstname}} {{selected_person.lastname}}</h5>
+                                    <h4>TELEFONNUMMER:</h4>
+                                    <h5 v-if='selected_person.phonenumber == null'>...</h5>
+                                    <h5 v-else-if='selected_person.phonenumber'>{{selected_person.phonenumber}}</h5>
+                                    <v-btn @click='newcaseOverlay =! newcaseOverlay' :disabled='selected_person.firstname == null' plain icon>
+                                        <v-icon>fas fa-plus</v-icon>
+                                    </v-btn>
+                                </div>
+
+                                <div class='db-cases'>
+                                    <table>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Author</th>
+                                            <th>Title</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        <tr v-for='(db, index) in selected_person.database'>
+                                            <td>{{db.id}}</td>
+                                            <td>{{db.author}}</td>
+                                            <td>{{db.title}}</td>
+                                            <td>
+                                                <v-btn @click='ViewCase(db.id, db.identifier, db.patientName, db.author, db.title, db.desc)' icon plain>
+                                                    <v-icon>fas fa-edit</v-icon>
+                                                </v-btn>
+                                                <v-btn @click='DeletePersonCase(db.id)' icon plain>
+                                                    <v-icon>fas fa-trash</v-icon>
+                                                </v-btn>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class='db-search'>
+                                    <v-text-field dark v-model='searchInput' ref='searchInput' searchInput='' label='SEARCH' filled></v-text-field>
+                                    <v-btn dark plain elevation='0' class='db-search-btn' small @click='SearchDatabase(searchInput)'>SØG</v-btn>
+                                    <v-btn dark plain elevation='0' class='db-search-clear-btn' small @click='SearchDatabaseClear()'>RYD</v-btn>
+                                    <div class='db-search-result'>
+                                        <v-btn @click='SelectPerson(sr.identifier, sr.firstname, sr.lastname, sr.phone_number)' v-for='(sr, index) in searchResults' :key='sr.identifier' elevation='5' plain tile>{{sr.firstname}} {{sr.lastname}}</v-btn>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <v-overlay class='respond-overlay' :value='respondOverlay' :z-index='zrespondOverlay'>
+                            <div class='respond-card'>
+                                <v-textarea respondMessage='' v-model='respondMessage' ref='respondMessage' no-resize filled rows='3' counter label='Respond message to the caller'></v-textarea>
+                                <v-btn tile plain @click='RespondCall()'>Send besked</v-btn>
+                            </div>
+                            <v-btn class='return-btn' @click='respondOverlay =! respondOverlay' icon plain>
+                                <v-icon>fas fa-angle-double-left</v-icon>
+                            </v-btn>
+                        </v-overlay>
+
+                        <v-overlay class='newcase-overlay' :value='newcaseOverlay' :z-index='znewcaseOverlay'>
+                            <div class='newcase-card'>
+                                <div class='newcase-wrapper'>
+                                    <v-text-field new_case.title='' v-model='new_case.title' ref='new_case.title' filled label='Record title'></v-text-field>
+                                    <v-textarea new_case.desc='' v-model='new_case.desc' ref='new_case.desc' no-resize filled rows='6' counter label='Record description'></v-textarea>
+                                    <v-btn :disabled='new_case.title == null || new_case.desc == null' @click='SubmitNewCase()' tile plain>Submit record</v-btn>
+                                </div>
+                            </div>
+                            <v-btn class='return-btn' @click='newcaseOverlay =! newcaseOverlay' icon plain>
+                                <v-icon>fas fa-angle-double-left</v-icon>
+                            </v-btn>
+                        </v-overlay>
+
+                        <v-overlay class='viewcase-overlay' :value='viewcaseOverlay' :z-index='zviewcaseOverlay'>
+                            <div class='viewcase-card'>
+                                <div class='viewcase-info'>
+                                    <h4>Case ID: #{{view_case.id}} | Author: {{view_case.author}}
+                                    </h4>
+                                </div>
+                                <div class='viewcase-wrapper'>
+                                    <v-text-field view_case.title='' v-model='view_case.title' ref='view_case.title' filled label='Record title'></v-text-field>
+                                    <v-textarea view_case.desc='' v-model='view_case.desc' ref='view_case.desc' no-resize filled rows='6' counter label='Record description'></v-textarea>
+                                    <v-btn :disabled='view_case.title == null || view_case.desc == null' @click='SaveViewCase()' tile plain>Save record</v-btn>
+                                </div>
+                            </div>
+                            <v-btn class='return-btn' @click='viewcaseOverlay =! viewcaseOverlay' icon plain>
+                                <v-icon>fas fa-angle-double-left</v-icon>
+                            </v-btn>
+                        </v-overlay>
+
+                    </div>
+                </div>
+            </v-main>
+        </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+    <script src="javascript.js"></script>
+</body>
+
+</html>
