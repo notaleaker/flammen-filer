@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+.menu {
+    font-family: 'Roboto', sans-serif;
+    min-width: 350px;
+    color: #fff;
+    position: absolute;
+}
+
+.menu.align-left {
+    left: 20;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.menu.align-top-left {
+    left: 30;
+    top: 235;
+}
+
+.menu.align-top-left-skin {
+    left: 20;
+    top: 235;
+}
+
+@media screen and (min-width: 1921px) {
+    .menu.align-top-left-skin {
+        left: 80 !important;
+        top: 285 !important;
+    }
+    .menu.align-top-left {
+        left: 28;
+        top: 243;
+    }
+}
+
+@media screen and (max-width: 1920px) {
+    .menu.align-top-left-skin {
+        left: 20 !important;
+        top: 235 !important;
+    }
+    .menu.align-top-left {
+        left: 30;
+        top: 235;
+    }
+}
+
+.menu.align-top {
+    left: 50%;
+    top: 40;
+    transform: translate(-50%, 0);
+}
+
+.menu.align-top-right {
+    right: 10;
+    top: 40;
+}
+
+.menu.align-right {
+    right: 40;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.menu.align-bottom-right {
+    right: 15;
+    bottom: 125;
+}
+
+.menu.align-bottom {
+    left: 50%;
+    bottom: 40;
+    transform: translate(-50%, 0);
+}
+
+.menu.align-bottom-left {
+    left: 40;
+    bottom: 40;
+}
+
+.menu.align-center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu .head-default {
+    font-weight: 700;
+    font-size: 18px;
+    background-color: #368fbf;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.menu .menu-items {
+    max-height: 600px;
+    background: rgb(19 19 19 / 90%);
+    border-radius: 0px 0px 10px 10px;
+    overflow-y: auto;
+}
+
+.menu .menu-items .menu-item {
+    height: 40px;
+    display: block;
+    color: #FFF;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+}
+
+.menu .menu-items .menu-item.selected {
+    background-color: rgba(49, 49, 49, 0.705);
+    color: #3fbcff;
+}
+
+
+/* customize scrollbar css */
+::-webkit-scrollbar{
+    width:10px;
+    background-color:#616161;
+}
+::-webkit-scrollbar:horizontal{
+    height:10px;
+}
+::-webkit-scrollbar-track{
+    border:0px #616161 solid;
+    border-radius:0px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #368fbf;
+    border: #368fbf;
+    border-radius:0px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color:#368fbf;
+    border:0px solid #368fbf;
+}
+::-webkit-scrollbar-thumb:active{
+    background-color:#368fbf;
+    border:0px solid #368fbf;
+}
+
+/*
+.menu {
+    font-family: 'Roboto', sans-serif;
+    min-width: 400px;
+    color: #fff;
+
+    position: absolute;
+}
+
+.menu.align-left {
+    left: 20;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.menu.align-top-left {
+    left: 20;
+    top: 235;
+}
+
+.menu.align-top {
+  left: 40;
+  top: 80;
+}
+
+.menu.align-top-right {
+    right: 10;
+    top: 40;
+}
+
+.menu.align-right {
+    right: 40;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.menu.align-bottom-right {
+    right: 15;
+    bottom: 125;
+}
+
+
+.menu.align-bottom {
+    left: 50%;
+    bottom: 40;
+    transform: translate(-50%, 0);
+}
+
+
+.menu.align-bottom-left {
+  right: 40;
+  bottom: 40;
+}
+
+.menu.align-center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.menu .head-default {
+    font-weight: 700;
+    font-size: 18px;
+    background-color: #1d951a;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+
+.menu .head-default * {
+    font-weight: 700;
+    font-size: 18px;
+    background-color: #1d951a;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+
+.menu .menu-items {
+  max-height: 350px;
+  overflow-y: hidden;
+}
+
+.menu .menu-items .menu-item {
+    height: 40px;
+    display: block;
+    background-color: #2e2e2e;
+    color: #FFF;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+}
+
+.menu .menu-items:nth-child(1) {
+  margin-top: 0;
+}
+
+.menu .menu-items .menu-item.selected {
+    background-color: #616161;
+}
