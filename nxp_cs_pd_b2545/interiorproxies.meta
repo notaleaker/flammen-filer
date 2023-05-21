@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SInteriorOrderData>
+    <startFrom value="2000" />
+    <filePathHash value="0" />
+    <proxies>
+        <Item>distlodlights_medium015</Item>
+        <Item>distlodlights_small037</Item>
+        <Item>kt1_occl_00</Item>
+        <Item>hei_kt1_rd_strm_2</Item>
+        <Item>kt1_occl_01</Item>
+        <Item>hei_kt1_12_strm_0</Item>
+        <Item>lodlights_medium015</Item>
+        <Item>lodlights_small037</Item>
+        <Item>nxp_cs_pd_ext_details</Item>
+        <Item>hei_kt1_rd_long_1</Item>
+        <Item>vw_distlodlights_medium015</Item>
+        <Item>kt1_occl_03</Item>
+        <Item>vw_distlodlights_small038</Item>
+        <Item>vw_lodlights_small038</Item>
+        <Item>vw_lodlights_medium015</Item>
+        <Item>nxp_cs_pd_milo_</Item>
+    </proxies>
+</SInteriorOrderData>
