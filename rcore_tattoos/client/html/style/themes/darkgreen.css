@@ -1,0 +1,14 @@
+:root {
+    --color-white:      #fff;
+    --color-black:      #000;
+    --color-primary:    #1f1e23;
+    --color-secondary:  #45444a;
+    --color-light:      #22312c;
+    --color-border:     #0f7135;
+    --color-accent:     #65e7a6;
+    --color-success:    #56d897;
+    --color-error:      #833030;
+    --color-text:       var(--color-white);
+    --color-highlight:  var(--color-black);
+    --slider-dot-color: var(--color-accent);
+}

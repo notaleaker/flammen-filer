@@ -1,0 +1,55 @@
+.help-keys {
+    display: flex;
+    position: absolute;
+    background-color: rgba(0,0,0,0.7);
+    font-family: 'Montserrat';
+    font-weight: 500;
+    padding: 0.5vh 1vh;
+    color: white;
+    font-size: 1.2vh;
+    column-gap: 2vh;
+    row-gap: 1.2vh;
+}
+
+.help-keys__key {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+}
+
+.help-keys__label {
+    display: inline-block;
+}
+
+.help-keys__button {
+    display: inline-block;
+    color: black;
+    background-color: white;
+    font-weight: 600;
+    padding: 0.4vh 0.7vh;
+    border-radius: 0.4vh;
+    font-family: inherit;
+}
+
+/* Modifiers */
+.help-keys--column {
+    flex-direction: column;
+}
+
+/* Position */
+.help-keys--top-left {
+    top: 0;
+    left: 0;
+}
+.help-keys--top-right {
+    top: 0;
+    right: 0;
+}
+.help-keys--bottom-left {
+    bottom: 0;
+    left: 0;
+}
+.help-keys--bottom-right {
+    bottom: 0;
+    right: 0;
+}

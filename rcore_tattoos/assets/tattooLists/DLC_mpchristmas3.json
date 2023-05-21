@@ -1,0 +1,418 @@
+[
+    {
+        "hashMale": "MP_Christmas3_Tat_000_M",
+        "hashFemale": "MP_Christmas3_Tat_000_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_LEFT_ARM",
+        "name": "TAT_X6_000"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_001_M",
+        "hashFemale": "MP_Christmas3_Tat_001_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_LEFT_ARM",
+        "name": "TAT_X6_001"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_002_M",
+        "hashFemale": "MP_Christmas3_Tat_002_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_RIGHT_ARM",
+        "name": "TAT_X6_002"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_003_M",
+        "hashFemale": "MP_Christmas3_Tat_003_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_RIGHT_ARM",
+        "name": "TAT_X6_003"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_004_M",
+        "hashFemale": "MP_Christmas3_Tat_004_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_004"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_005_M",
+        "hashFemale": "MP_Christmas3_Tat_005_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_005"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_006_M",
+        "hashFemale": "MP_Christmas3_Tat_006_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_006"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_007_M",
+        "hashFemale": "MP_Christmas3_Tat_007_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_007"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_008_M",
+        "hashFemale": "MP_Christmas3_Tat_008_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_RIGHT_LEG",
+        "name": "TAT_X6_008"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_009_M",
+        "hashFemale": "MP_Christmas3_Tat_009_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_LEFT_LEG",
+        "name": "TAT_X6_009"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_010_M",
+        "hashFemale": "MP_Christmas3_Tat_010_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_HEAD",
+        "name": "TAT_X6_010"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_011_M",
+        "hashFemale": "MP_Christmas3_Tat_011_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_HEAD",
+        "name": "TAT_X6_011"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_012_M",
+        "hashFemale": "MP_Christmas3_Tat_012_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_HEAD",
+        "name": "TAT_X6_012"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_013_M",
+        "hashFemale": "MP_Christmas3_Tat_013_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_HEAD",
+        "name": "TAT_X6_013"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_014_M",
+        "hashFemale": "MP_Christmas3_Tat_014_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_014"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_015_M",
+        "hashFemale": "MP_Christmas3_Tat_015_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_015"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_016_M",
+        "hashFemale": "MP_Christmas3_Tat_016_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_016"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_017_M",
+        "hashFemale": "MP_Christmas3_Tat_017_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_017"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_018_M",
+        "hashFemale": "MP_Christmas3_Tat_018_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_018"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_019_M",
+        "hashFemale": "MP_Christmas3_Tat_019_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_019"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_020_M",
+        "hashFemale": "MP_Christmas3_Tat_020_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_020"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_021_M",
+        "hashFemale": "MP_Christmas3_Tat_021_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_021"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_022_M",
+        "hashFemale": "MP_Christmas3_Tat_022_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_022"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_023_M",
+        "hashFemale": "MP_Christmas3_Tat_023_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_023"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_024_M",
+        "hashFemale": "MP_Christmas3_Tat_024_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_024"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_025_M",
+        "hashFemale": "MP_Christmas3_Tat_025_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_025"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_026_M",
+        "hashFemale": "MP_Christmas3_Tat_026_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_LEFT_ARM",
+        "name": "TAT_X6_026"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_027_M",
+        "hashFemale": "MP_Christmas3_Tat_027_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_RIGHT_ARM",
+        "name": "TAT_X6_027"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_028_M",
+        "hashFemale": "MP_Christmas3_Tat_028_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_LEFT_ARM",
+        "name": "TAT_X6_028"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_029_M",
+        "hashFemale": "MP_Christmas3_Tat_029_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_RIGHT_ARM",
+        "name": "TAT_X6_029"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_030_M",
+        "hashFemale": "MP_Christmas3_Tat_030_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_LEFT_ARM",
+        "name": "TAT_X6_030"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_031_M",
+        "hashFemale": "MP_Christmas3_Tat_031_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_RIGHT_ARM",
+        "name": "TAT_X6_031"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_032_M",
+        "hashFemale": "MP_Christmas3_Tat_032_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_RIGHT_ARM",
+        "name": "TAT_X6_032"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_033_M",
+        "hashFemale": "MP_Christmas3_Tat_033_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_LEFT_ARM",
+        "name": "TAT_X6_033"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_034_M",
+        "hashFemale": "MP_Christmas3_Tat_034_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_LEFT_LEG",
+        "name": "TAT_X6_034"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_035_M",
+        "hashFemale": "MP_Christmas3_Tat_035_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_RIGHT_LEG",
+        "name": "TAT_X6_035"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_036_M",
+        "hashFemale": "MP_Christmas3_Tat_036_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_RIGHT_LEG",
+        "name": "TAT_X6_036"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_037_M",
+        "hashFemale": "MP_Christmas3_Tat_037_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_LEFT_LEG",
+        "name": "TAT_X6_037"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_038_M",
+        "hashFemale": "MP_Christmas3_Tat_038_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_LEFT_LEG",
+        "name": "TAT_X6_038"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_039_M",
+        "hashFemale": "MP_Christmas3_Tat_039_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_RIGHT_LEG",
+        "name": "TAT_X6_039"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_040_M",
+        "hashFemale": "MP_Christmas3_Tat_040_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_040"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_041_M",
+        "hashFemale": "MP_Christmas3_Tat_041_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_041"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_042_M",
+        "hashFemale": "MP_Christmas3_Tat_042_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_042"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_043_M",
+        "hashFemale": "MP_Christmas3_Tat_043_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_043"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_044_M",
+        "hashFemale": "MP_Christmas3_Tat_044_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_044"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_045_M",
+        "hashFemale": "MP_Christmas3_Tat_045_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_045"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_046_M",
+        "hashFemale": "MP_Christmas3_Tat_046_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_046"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_047_M",
+        "hashFemale": "MP_Christmas3_Tat_047_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_047"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_048_M",
+        "hashFemale": "MP_Christmas3_Tat_048_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_048"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_049_M",
+        "hashFemale": "MP_Christmas3_Tat_049_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_049"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_050_M",
+        "hashFemale": "MP_Christmas3_Tat_050_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_050"
+    },
+    {
+        "hashMale": "MP_Christmas3_Tat_051_M",
+        "hashFemale": "MP_Christmas3_Tat_051_F",
+        "price": 500,
+        "collection": "mpchristmas3_overlays",
+        "zone": "ZONE_TORSO",
+        "name": "TAT_X6_051"
+    }
+]

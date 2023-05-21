@@ -1,0 +1,298 @@
+[
+  {
+    "collection": "mpbeach_overlays",
+    "hashFemale": "FM_Hair_Fuzz",
+    "hashMale": "FM_Hair_Fuzz",
+    "name": "Hair Fade - 1",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NG_M_Hair_001",
+    "hashMale": "NG_M_Hair_001",
+    "name": "Hair Fade - 2",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NG_M_Hair_002",
+    "hashMale": "NG_M_Hair_002",
+    "name": "Hair Fade - 3",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NG_M_Hair_003",
+    "hashMale": "NG_M_Hair_003",
+    "name": "Hair Fade - 4",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NG_M_Hair_004",
+    "hashMale": "NG_M_Hair_004",
+    "name": "Hair Fade - 5",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NG_M_Hair_005",
+    "hashMale": "NG_M_Hair_005",
+    "name": "Hair Fade - 6",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NG_M_Hair_006",
+    "hashMale": "NG_M_Hair_006",
+    "name": "Hair Fade - 7",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NG_M_Hair_007",
+    "hashMale": "NG_M_Hair_007",
+    "name": "Hair Fade - 8",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NG_M_Hair_008",
+    "hashMale": "NG_M_Hair_008",
+    "name": "Hair Fade - 9",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NG_M_Hair_009",
+    "hashMale": "NG_M_Hair_009",
+    "name": "Hair Fade - 10",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NG_M_Hair_013",
+    "hashMale": "NG_M_Hair_013",
+    "name": "Hair Fade - 11",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NG_M_Hair_011",
+    "hashMale": "NG_M_Hair_011",
+    "name": "Hair Fade - 12",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NG_M_Hair_012",
+    "hashMale": "NG_M_Hair_012",
+    "name": "Hair Fade - 13",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NG_M_Hair_014",
+    "hashMale": "NG_M_Hair_014",
+    "name": "Hair Fade - 14",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NG_M_Hair_015",
+    "hashMale": "NG_M_Hair_015",
+    "name": "Hair Fade - 15",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NGBea_M_Hair_000",
+    "hashMale": "NGBea_M_Hair_000",
+    "name": "Hair Fade - 16",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NGBea_M_Hair_001",
+    "hashMale": "NGBea_M_Hair_001",
+    "name": "Hair Fade - 17",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NGBus_M_Hair_000",
+    "hashMale": "NGBus_M_Hair_000",
+    "name": "Hair Fade - 18",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NGBus_M_Hair_001",
+    "hashMale": "NGBus_M_Hair_001",
+    "name": "Hair Fade - 19",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NGHip_M_Hair_000",
+    "hashMale": "NGHip_M_Hair_000",
+    "name": "Hair Fade - 20",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NGHip_M_Hair_001",
+    "hashMale": "NGHip_M_Hair_001",
+    "name": "Hair Fade - 21",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "multiplayer_overlays",
+    "hashFemale": "NGInd_M_Hair_000",
+    "hashMale": "NGInd_M_Hair_000",
+    "name": "Hair Fade - 22",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "mplowrider_overlays",
+    "hashFemale": "LR_M_Hair_000",
+    "hashMale": "LR_M_Hair_000",
+    "name": "Hair Fade - 23",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "mplowrider_overlays",
+    "hashFemale": "LR_M_Hair_001",
+    "hashMale": "LR_M_Hair_001",
+    "name": "Hair Fade - 24",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "mplowrider_overlays",
+    "hashFemale": "LR_M_Hair_002",
+    "hashMale": "LR_M_Hair_002",
+    "name": "Hair Fade - 25",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "mplowrider_overlays",
+    "hashFemale": "LR_M_Hair_003",
+    "hashMale": "LR_M_Hair_003",
+    "name": "Hair Fade - 26",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "mplowrider2_overlays",
+    "hashFemale": "LR_M_Hair_004",
+    "hashMale": "LR_M_Hair_004",
+    "name": "Hair Fade - 27",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "mplowrider2_overlays",
+    "hashFemale": "LR_M_Hair_005",
+    "hashMale": "LR_M_Hair_005",
+    "name": "Hair Fade - 28",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "mplowrider2_overlays",
+    "hashFemale": "LR_M_Hair_006",
+    "hashMale": "LR_M_Hair_006",
+    "name": "Hair Fade - 29",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "mpbiker_overlays",
+    "hashFemale": "MP_Biker_Hair_000_M",
+    "hashMale": "MP_Biker_Hair_000_M",
+    "name": "Hair Fade - 30",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "mpbiker_overlays",
+    "hashFemale": "MP_Biker_Hair_001_M",
+    "hashMale": "MP_Biker_Hair_001_M",
+    "name": "Hair Fade - 31",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "mpbiker_overlays",
+    "hashFemale": "MP_Biker_Hair_002_M",
+    "hashMale": "MP_Biker_Hair_002_M",
+    "name": "Hair Fade - 32",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "mpbiker_overlays",
+    "hashFemale": "MP_Biker_Hair_003_M",
+    "hashMale": "MP_Biker_Hair_003_M",
+    "name": "Hair Fade - 33",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "mpbiker_overlays",
+    "hashFemale": "MP_Biker_Hair_004_M",
+    "hashMale": "MP_Biker_Hair_004_M",
+    "name": "Hair Fade - 34",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "mpbiker_overlays",
+    "hashFemale": "MP_Biker_Hair_005_M",
+    "hashMale": "MP_Biker_Hair_005_M",
+    "name": "Hair Fade - 35",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "mpgunrunning_overlays",
+    "hashFemale": "MP_Gunrunning_Hair_M_000_M",
+    "hashMale": "MP_Gunrunning_Hair_M_000_M",
+    "name": "Hair Fade - 36",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  },
+  {
+    "collection": "mpgunrunning_overlays",
+    "hashFemale": "MP_Gunrunning_Hair_M_001_M",
+    "hashMale": "MP_Gunrunning_Hair_M_001_M",
+    "name": "Hair Fade - 37",
+    "price": 500,
+    "zone": "ZONE_HEAD"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "collection": "rcore_overlays",
+    "hashFemale": "Rcore_Logo_001_F",
+    "hashMale": "Rcore_Logo_001_M",
+    "name": "RCORE_LOGO_TL",
+    "price": 500,
+    "zone": "ZONE_TORSO"
+  },
+  {
+    "collection": "rcore_overlays",
+    "hashFemale": "rcore_logo_test_F",
+    "hashMale": "rcore_logo_test_M",
+    "name": "RCORE_TEST",
+    "price": 500,
+    "zone": "ZONE_TORSO"
+  }
+]

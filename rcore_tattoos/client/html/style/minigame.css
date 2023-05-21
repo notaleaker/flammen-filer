@@ -1,0 +1,86 @@
+.minigame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    cursor: none;
+    font-family: 'Montserrat';
+    flex-direction: column;
+    z-index: 999995;
+    transition: background-color 0.3s;
+}
+
+.minigame__area, .minigame__fill-area {
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 15vh;
+    height: 15vh;
+    border-radius: 100%;
+    pointer-events: none;
+    position: absolute;
+    z-index: 999996;
+}
+
+.minigame__fill-area {
+    z-index: 999997;
+    background-color: var(--color-success);
+    width: 0;
+    height: 0;
+}
+
+.minigame__cursor {
+    position: absolute;
+    height: 10vh;
+    width: 10vh;
+    border-radius: 50%;
+    border: 2px solid black;
+    background: rgba(255, 255, 255, 0.3);
+    transition-duration: 400ms;
+    transition-timing-function: ease-out;
+    z-index: 999998;
+}
+
+.minigame__dialog {
+    position: absolute;
+    z-index: 999999;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    border-radius: 1vh;
+    top: 4vh;
+    color: white;
+    overflow: hidden;
+}
+
+.minigame__dialog-content {
+    padding: 2vh;
+}
+
+.minigame__dialog-title {
+    font-size: 3vh;
+}
+.minigame__dialog-desc {
+    font-size: 1.3vh;
+}
+
+.minigame__dialog-line {
+    width: 1%;
+    height: 0.5vh;
+    background: var(--color-success);
+}
+
+.minigame__dialog-line--red {
+    background: var(--color-error);
+}
+
+@keyframes minigameSuccess {
+    0%,
+	50%,
+	100% {
+		opacity: 1;
+	}
+
+	25%,
+	75% {
+		opacity: 0;
+	}
+}
