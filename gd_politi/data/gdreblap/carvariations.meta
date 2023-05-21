@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- GD Rebla Patrulje - Made by GeekDesigns -->
+<CVehicleModelInfoVariation>
+    <variationData>
+        <Item>
+            <modelName>gdreblap</modelName>
+            <colors>
+                <Item>
+                    <indices content="char_array">0 0 6 0 1 27</indices>
+                </Item>
+            </colors>
+            <kits>
+                <Item>0_default_modkit</Item>
+            </kits>
+            <windowsWithExposedEdges />
+            <plateProbabilities>
+                <Probabilities>
+                    <Item>
+                        <Name>Standard White</Name>
+                        <Value value="100" />
+                    </Item>
+                </Probabilities>
+            </plateProbabilities>
+            <lightSettings value="150" />
+            <sirenSettings value="99996" />
+        </Item>
+    </variationData>
+<!-- GD Rebla Patrulje - Made by GeekDesigns -->
+</CVehicleModelInfoVariation>
