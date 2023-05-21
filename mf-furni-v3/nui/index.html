@@ -1,0 +1,1692 @@
+<html>
+    <head> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+            
+            * {
+
+                box-sizing: border-box;   
+                margin: 0;
+                padding: 0;  
+
+            }
+
+            body {
+
+                background-color: transparent;
+                font-family: Arial, Helvetica, sans-serif;
+                color: white;
+
+            }
+
+            button {
+
+                border: none;
+                cursor: pointer;
+                background-color: transparent;
+                color: white;
+                
+            }
+
+            button:hover { 
+                background-color: rgb(77, 77, 77);
+            }
+
+            .off {
+
+                display: none !important;
+                pointer-events: none; 
+
+            }
+
+            .panel1 {
+
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                height: 100%;
+                padding: 100px;
+
+            }
+
+            .panel2 {
+
+                position: relative;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+
+            }
+
+            .panel3 {
+                display: flex;
+                flex-direction: column;
+                background-color: rgba(30,30,50,0.7);
+            }
+
+            .container-holder {
+                position: relative;
+                width: calc( 100% - 50px );
+                max-height: 80%;
+                clip-path: inset(25px 0px 25px 0px);
+                border-left: 1px solid white;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                padding: 25px;
+            }
+
+            .container-items {
+                padding-right: 50px;
+                background-color: rgba(30,30,50,0.7);
+            }
+
+            .container {
+                overflow: auto;
+                border-radius: 10px;
+            }
+
+            .container::-webkit-scrollbar {
+                display: none;
+            }
+
+            .hline {
+
+                height: 1px;
+                width: 100%;
+                background-color: white;
+                margin: 15px 0;
+
+            }
+
+            .item {
+
+                display: flex;
+                flex-direction: row;
+                margin: 5px 0px;
+
+                align-items: center;
+                padding: 0px 10px;
+                border-radius: 2px;
+
+            }
+
+            .item:nth-child(1) {
+                padding-top: 10px;
+            }
+
+            .item:last-child {
+                padding-bottom: 10px;
+            }
+
+            .toggle {
+                width: 20px;
+                height: 20px;
+
+                border: 1px solid white;
+
+                margin-right:10px;
+            }
+
+            .toggle.selected {
+                background: white !important;
+            }
+
+            .name {
+
+                padding: 5px 15px;
+                pointer-events: none;
+                font-size: 12pt;
+
+            }
+
+            .stats {
+
+                padding: 5px 15px;
+                pointer-events: none;
+                font-size: 12pt;
+
+            }
+
+            .count {
+
+                padding: 5px 15px;
+                pointer-events: none;
+                font-size: 12pt;
+
+            }
+
+            .itembutton {
+
+                display: flex;
+                flex-direction: row;
+                border-radius: 3px;
+
+                transition: all 0.25s;
+
+            }
+
+            .backbutton {
+
+                position: absolute;
+                top : 10px;
+                left: 10px;
+                width: 50px;
+                height: 50px;
+                font-size: 48pt;
+                border-radius: 3px;
+                transition: all 0.25s;
+                border: 1px solid white;
+                user-select: none;
+                
+            }
+
+            .basketbutton {
+
+                position: absolute;
+                top:10px;
+                right:10px;
+                width: 50px;
+                height: 50px;
+                font-size: 20pt;
+                border-radius: 3px;
+                transition: all 0.25s;
+                border: 1px solid white;
+
+            }
+
+            .popup {
+
+                position: absolute;
+                top:50%;
+                left:50%;
+                transform: translateX(-50%) translateY(-50%);
+                width: 300px;
+                background-color: rgba(30,30,50,0.7);
+                padding-top:25px;
+                display: flex;
+                flex-direction: column;
+                border-radius: 15px;
+
+            }
+
+            .closebutton {
+
+                position: absolute;
+                top:5px;
+                right:5px;
+                width: 20px;
+                height: 20px;
+                border-radius: 10px;
+                background-color: red;
+                transition: all 0.25s;
+
+            }
+
+            .info {
+
+                height: 100%;
+                margin-top: 5px;
+                margin-bottom: 5px;
+                padding: 25px;
+                text-align: center;
+
+            }
+
+            .panel4 {
+
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                padding: 15px;
+
+            }
+
+            .okbutton {
+                background-color: rgb(100, 100, 100);
+                width: 100px;
+                color:white;
+                transition: all 0.25s;
+            }
+
+            .cancelbutton {
+                background-color: rgb(100, 100, 100);
+                width: 100px;
+                color:white;
+                transition: all 0.25s;
+            }
+
+            .okbutton:hover {
+                opacity: 1;
+                background-color: rgb(77, 77, 77);
+
+            }
+
+            .cancelbutton:hover {
+                background-color: rgb(77, 77, 77);
+            }
+
+            .panel5 {
+                display: flex;
+                flex-direction: row;
+                padding: 5px 0px;
+                justify-content: space-between;
+                padding: 0px 10px;
+            }
+
+            .panel5:nth-child(1) {
+                padding-top: 10px;
+            }
+
+            .panel5:last-child {
+                padding-bottom: 10px;
+            }
+
+            .buybutton {
+
+                height: 50px;
+                width: 100%;
+                min-width: 50px;
+                border-radius: 5px;
+                background-color: #3399ff;
+                text-transform: uppercase;
+                font-weight: bold;
+                color:white;
+                float: right;
+                margin-top: 25px;
+                align-self: self-end;
+
+                transition: all 0.25s;
+                opacity: 0.7;
+
+            }
+
+            .buybutton:hover {
+                background-color: #3399ff;
+                opacity: 1;
+            }
+
+            .addbutton {
+
+                height: 50px;
+                width: 150px;
+                border-radius: 5px;
+                background-color: #3399ff;
+                text-transform: uppercase;
+                font-weight: bold;
+                color:white;
+                float: right;
+
+                transition: all 0.25s;
+                opacity: 0.7;
+
+            }
+
+            .addbutton:hover {
+                background-color: #3399ff;
+                opacity: 1;
+            }
+
+            .okbutton {
+                background-color: #3399ff;
+
+                border-radius: 5px;
+                height: 30px;
+
+                opacity:  0.7;
+
+            }
+
+            .okbutton:hover {                
+                background-color: #3399ff;
+            }
+
+            .cancelbutton {
+
+                opacity:  0.7;
+
+                border-radius: 5px;
+                height: 30px;
+                
+            }
+
+            .addpanel {
+
+                position: absolute;
+
+                right:10px;
+                bottom:10px;
+
+                display: flex;
+                flex-direction: row;
+
+                align-items: center;
+
+            }
+
+            .addprice {
+
+                font-size: 25pt;
+                font-weight: bold;
+                margin: 0 25px;
+
+            }
+
+            .placebutton {
+
+                height: 50px;
+                width: 150px;
+                border-radius: 5px;
+                background-color: #3399ff;
+                text-transform: uppercase;
+                font-weight: bold;
+                color:white;
+                float: right;
+                transition: all 0.25s;
+                opacity: 0.7;
+
+            }
+
+            .placebutton:hover {
+                background-color: #3399ff;
+                opacity: 1;
+            }
+
+            .sellbutton {
+
+                height: 50px;
+                width: 150px;
+                border-radius: 5px;
+                background-color: rgb(66, 66, 66);
+                text-transform: uppercase;
+                font-weight: bold;
+                color:white;
+                float: right;
+                margin-top: 30px;
+                transition: all 0.25s;
+
+            }
+
+            .sellbutton:hover {
+                background-color: rgb(77, 77, 77);
+
+            }
+
+            .header {
+
+                font-weight: bold;
+                font-size: 20pt;
+            
+            }
+
+            .basketcount {
+            
+                position: absolute;
+                top: 100%;
+                left: 0;
+                border-radius: 50%;
+                background: red;
+                padding: 5px 8px;
+                transform: translateX(-50%) translateY(-50%);
+                font-size: 9pt;
+            
+            }
+
+            .disabled {
+
+                pointer-events: none;
+                opacity: 0.5;
+
+            }
+
+            .charicon {
+
+                pointer-events: none;
+
+            }
+
+            .backbutton .charicon {
+
+                position: absolute;
+
+                top: -14px;
+                left: -6px;
+
+            }
+
+            .basketbutton .charicon {
+
+                position: absolute;
+                top: 3px;
+                left: 7px;
+
+            }
+
+            .selected {
+
+                background-color: #3399ff !important;
+
+            }
+
+            .clearbutton {
+
+                margin-left: 30px;
+                position: relative;
+                width: 30px;
+                border-radius: 3px;
+                border: 1px solid white;
+                height: 30px;
+
+                transition: all 0.25s;
+
+            }
+
+            .clearbutton .charicon {
+
+                position: absolute;
+                top: -2px;
+                left: 5px;
+                font-size: 16pt;
+
+            }
+
+            .headercontainer {
+
+                display: flex;
+                flex-direction: row;
+
+            }
+
+            .inventorybackbutton {
+
+                margin-right: 30px;
+                position: relative;
+                width: 30px;
+                border-radius: 3px;
+                border: 1px solid white;
+                height: 30px;
+
+                transition: all 0.25s;
+
+            }
+
+            .inventorybackbutton .charicon {
+
+                position: absolute;
+                top: -4px;
+                left: 0;
+                font-size: 24pt;
+
+            }
+
+            .previewbutton {
+
+                height: 50px;
+                width: 150px;
+                border-radius: 5px;
+                background-color: #8c8c8c;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: white;
+                float: right;
+                margin-right: 25px;
+
+                transition: all 0.25s;
+
+            }
+
+            .presetprice {
+
+                font-size: 25pt;
+                font-weight: bold;
+                margin: 0 25px;
+
+            }
+
+            .orderbutton {
+
+                height: 50px;
+                width: 150px;
+                border-radius: 5px;
+                background-color: #3399ff;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: white;
+                float: right;
+
+                transition: all 0.25s;
+
+            }
+
+            .toregister {
+                padding: 25px;
+                text-align: center;
+                font-weight: bold;
+                color: #0066ff;
+                font-size: 16pt;
+            }
+
+            #place {
+                background-color: rgba(0,0,0,0.0) !important;
+            }
+
+        </style>
+    </head>
+    <body>
+        <button class="backbutton"><div class="charicon">&#x25c3</div></button>
+        <button class="basketbutton"><div class="charicon">&#128722</div><div class="basketcount"></div></button>
+        <div class="panel1">
+            <div id="inventory" class="panel2">
+                <div class="headercontainer"><button class="inventorybackbutton off"><div class="charicon">&#x25c3</div></button><div class="header">Inventory</div><button class="clearbutton off"><div class="charicon">&#10006</div></button></div>
+                <div class="container-holder">
+                    <div class="container container-items"></div>
+                </div>
+            </div>
+            <div id="inspector"class="panel2" style="width: 50%;">
+                <div class="header">Someting</div>
+                <div class="container">
+                    <div id="buy" class="panel3 off">
+                        <div class="selection panel5">
+                            <div class="selectiontext">Antal</div>
+                            <div class="selectionprice"></div>
+                        </div>
+                        <div class="total panel5">
+                            <div class="totaltext">Total</div>
+                            <div class="totalprice"></div>
+                        </div>
+                        <div class="shipping panel5">
+                            <div class="shippingtext">Fragt</div>
+                            <div class="shippingprice"></div>
+                        </div>
+                        <div class="hline"></div>                
+                        <div class="subtotal panel5">
+                            <div class="subtotaltext">Subtotal</div>
+                            <div class="subtotalprice"></div>
+                        </div>
+                        <button class="buybutton">Køb</button>
+                        <div class="toregister off"></div>
+                    </div>
+                    <div id="place" class="panel3 off">
+                        <button class="placebutton">Placer</button>
+                        <button class="sellbutton">Sælg</button>
+                    </div>
+                </div>
+                <div id="add" class="addpanel off">
+                    <div class="addprice"></div>
+                    <button class="addbutton">Tilføj</button>
+                </div>
+                <div id="preset" class="addpanel off">
+                    <div class="presetprice"></div>
+                    <button class="previewbutton">Preview</button>
+                    <button class="orderbutton">Kurv</button>
+                </div>
+            </div>
+        </div>
+        <div id="popup" class="popup off">
+            <div class="info"></div>
+            <div class="panel4">
+                <button class="okbutton">Bekræft</button>
+                <button class="cancelbutton">Annuller</button>
+            </div>
+        </div>
+    </body>
+    <script>
+
+        //buttons
+
+        var backButton = document.getElementsByClassName("backbutton")[0]
+        var basketButton = document.getElementsByClassName("basketbutton")[0]
+        var closeButton = document.getElementsByClassName("closebutton")[0]
+        var okButton = document.getElementsByClassName("okbutton")[0]
+        var cancelButton = document.getElementsByClassName("cancelbutton")[0]
+        var addButton = document.getElementsByClassName("addButton")[0]
+        var previewButton = document.getElementsByClassName("previewbutton")[0]
+        var orderButton = document.getElementsByClassName("orderbutton")[0]
+        var buyButton = document.getElementsByClassName("buyButton")[0]
+        var sellButton = document.getElementsByClassName("sellButton")[0]
+        var placeButton = document.getElementsByClassName("placeButton")[0]
+        var clearButton = document.getElementsByClassName("clearButton")[0]
+        var inventoryBackButton = document.getElementsByClassName("inventorybackbutton")[0]
+
+        //panels
+
+        var inventory = document.getElementById("inventory")
+        var inspector = document.getElementById("inspector")
+        var popup = document.getElementById("popup")
+        var add = document.getElementById("add")
+        var preset = document.getElementById("preset")
+        var buy = document.getElementById("buy")
+        var place = document.getElementById("place")
+
+        //containers
+
+        var inventoryContainer = document.getElementById("inventory").getElementsByClassName("container")[0]
+        var inspectorContainer = document.getElementById("inspector").getElementsByClassName("container")[0]
+
+        //properties
+
+        var info = document.getElementsByClassName("info")[0]
+        var selectionprice = document.getElementsByClassName("selectionprice")[0]
+        var totalprice = document.getElementsByClassName("totalprice")[0]
+        var shippingprice = document.getElementsByClassName("shippingprice")[0]
+        var subtotalprice = document.getElementsByClassName("subtotalprice")[0]
+        var addprice = document.getElementsByClassName("addprice")[0]
+        var presetprice = document.getElementsByClassName("presetprice")[0]
+        var basketCount = document.getElementsByClassName("basketcount")[0]
+        var header1 = document.getElementsByClassName("header")[0]
+        var header2 = document.getElementsByClassName("header")[1]
+        var toregister = document.getElementsByClassName("toregister")[0]
+
+        //cache
+
+        var currentItems = []
+        var currentBasketItems = []
+        var originalItems = []
+        var currentPlayerMoney = 0
+        var currentState = "none"
+        var currentSelectedItem = null
+        var currentCategoty
+        var currentCanBuyNow = true
+
+        //lua
+
+        var resourceName = "furniv2"
+        var callbackName = "UIMessage"
+
+        //popup
+
+        function ShowMessage( message , onReturn ) {
+
+            popup.classList.toggle("off",false)
+
+            info.innerHTML = message
+
+            cancelButton.onclick = () => { CloseMessage(); onReturn(false) }
+            okButton.onclick = () => { CloseMessage(); onReturn(true) }
+
+        }
+
+        function CloseMessage() {
+
+            popup.classList.toggle("off",true)
+
+        }
+
+        //inventory
+
+        function ShowInventory(items) {
+
+            inventory.classList.toggle("off",false)
+
+            if( currentItems != null ) {
+
+                for( var i = 0; i < currentItems.length; i++ ) {
+
+                    currentItems[i].element = null
+
+                }
+
+            }
+
+            inventoryContainer.innerHTML = ""
+
+            if( items != null && typeof(items) == "object") {
+
+                currentItems = items;
+
+                for( var i = 0; i < items.length; i++) {
+
+                    var element = CreateInventoryItem(inventoryContainer,items[i],i)
+
+                    items[i].element = element
+
+                }
+
+            }
+
+        } 
+
+        function HideInventory() {
+
+            inventory.classList.toggle("off",true)
+
+        }
+
+        function CreateInventoryItem(parent,config,index) {
+
+            var itemContainer = document.createElement("div")
+            itemContainer.classList.add("item")
+            itemContainer.setAttribute("index",index)
+
+            var toggleButton = document.createElement("button")
+            toggleButton.classList.add("toggle")
+            toggleButton.classList.toggle("off",!(config && config.selectable || false))
+            toggleButton.classList.toggle("selected",config && config.selected == true )
+            
+            var itemButton = document.createElement("button")
+            itemButton.classList.add("itembutton")
+
+            var name = document.createElement("div")
+            name.classList.add("name")
+            name.innerHTML = config && config.label || ""
+            name.classList.toggle("off",name.innerHTML == "")
+
+            var stats = document.createElement("div")
+            stats.classList.add("stats")
+            stats.innerHTML = config && config.stats || ( config && config.price ? config.price+"&#36" : "")
+            stats.classList.toggle("off",stats.innerHTML == "")
+
+            var count = document.createElement("div")
+            count.classList.add("count")
+
+            if( config.models != null && typeof(config.models) == "object") {
+
+                count.innerHTML = config.models.length
+
+            } else {
+
+                if( config && config.count > 1 ) {
+
+                    count.innerHTML = config && config.count || ""               
+
+                }
+
+            }
+
+            if( count.innerHTML != "" ) { count.innerHTML = "x" + count.innerHTML }
+            count.classList.toggle("off",count.innerHTML == "")
+
+            itemButton.appendChild(name)
+            itemButton.appendChild(stats)
+            itemButton.appendChild(count)
+
+            itemContainer.appendChild(toggleButton)
+            itemContainer.appendChild(itemButton)
+
+            if( parent != null ) {
+
+                parent.appendChild(itemContainer)
+
+            }
+
+            return itemContainer
+
+        }
+
+        //inspector
+
+        function ShowInspector() {
+
+            inspector.classList.toggle("off",false)
+
+        }
+
+        function HideInspector() {
+
+            inspector.classList.toggle("off",true)
+
+        }
+
+        //add
+
+        function ShowAdd(price) {
+
+            add.classList.toggle("off",false)
+
+            header2.classList.toggle("off",true)
+
+            addprice.innerHTML = price+"&#36"
+
+        }
+
+        function HideAdd() {
+
+            add.classList.toggle("off",true)
+
+        }
+
+        //preset
+
+        function ShowPreset(price) {
+
+            preset.classList.toggle("off",false)
+
+            header2.classList.toggle("off",true)
+
+            presetprice.innerHTML = price+"&#36"
+
+        }
+
+        function HidePreset() {
+
+            preset.classList.toggle("off",true)
+
+        }
+
+
+        //buy
+
+        function ShowBuy(basketItems) {
+
+            var count = 0
+
+            var total = 0
+
+            for( var i = 0; i < basketItems.length; i++ ) {
+
+                if( basketItems[i].selected ) {
+
+                    count ++
+
+                    total += basketItems[i].price
+
+                }
+
+            }
+
+            var shipping = total * 0.1
+
+            var subtotal = total + shipping
+
+            buy.classList.toggle("off",false)
+
+            header2.classList.toggle("off",false)
+
+
+            selectionprice.innerHTML = "x" + count
+
+            totalprice.innerHTML = total
+
+            subtotalprice.innerHTML = subtotal
+
+            shippingprice.innerHTML = shipping
+
+            if( currentCanBuyNow == null ) {
+
+                buyButton.classList.toggle("off",false)
+
+                buyButton.classList.toggle("disabled", currentPlayerMoney < subtotal || subtotal == 0) 
+
+                toregister.classList.toggle("off",true)
+
+            } else {
+
+                buyButton.classList.toggle("off",true)
+
+                toregister.classList.toggle("off",false)
+
+                toregister.innerHTML = currentCanBuyNow
+
+            }
+
+            
+        }
+
+        function HideBuy() {
+            
+            buy.classList.toggle("off",true)
+
+        }
+
+        //place
+
+        function ShowPlace() {
+
+            place.classList.toggle("off",false)
+
+            header2.classList.toggle("off",false)
+
+        }
+
+        function HidePlace() {
+
+            place.classList.toggle("off",true)
+
+        }
+
+        //basket
+
+        function ShowBasket(count) { 
+
+            basketButton.classList.toggle("off",false)
+
+            basketCount.classList.toggle("off",count <= 0 )
+
+            basketCount.innerHTML = count
+
+        }
+
+        function HideBasket() {
+
+            basketButton.classList.toggle("off",true)
+
+        }
+
+        //back
+
+        function ShowBack() {
+
+            backButton.classList.toggle("off",false)
+
+        }
+
+        function HideBack() { 
+
+            backButton.classList.toggle("off",true)
+
+        }
+
+        //utils
+
+        function HideAll() {
+
+            CloseMessage()
+            HideInventory()
+            HideInspector()
+            HideAdd()
+            HideBuy()
+            HidePlace()
+            HideBasket()
+            HideBack()
+            HidePreset()
+
+        }
+ 
+        function GetCurrentScroll() { 
+            return inventoryContainer.scrollTop 
+        }
+
+        //interface
+
+        function BuyFurniture(items,basketItems,playerMoney,canBuyNow) {
+
+            currentState = "buy"
+
+            currentCanBuyNow = canBuyNow
+
+            currentBasketItems = basketItems
+
+            currentPlayerMoney = playerMoney
+
+            HideAll()
+
+            ShowBack()
+
+            ShowInventory(items)
+
+            ShowInspector()
+
+            ShowBasket(basketItems.length)
+
+            header2.classList.toggle("off",true)
+
+            header1.innerHTML = "Inventory"
+
+            inventoryBackButton.classList.toggle("off",true)
+
+            for( var i = 0; i < items.length; i++ ) {
+
+                if( items[i].models != null && typeof(items[i].models) == "object") {
+
+                    items[i].element.childNodes[1].onclick = (e) => {
+
+                        var index = parseInt(e.target.parentElement.getAttribute("index"))
+
+                        BuyFurniture(items[index].models,currentBasketItems,currentPlayerMoney,currentCanBuyNow)
+
+                        inventoryBackButton.classList.toggle("off",false)
+
+                        inventoryBackButton.onclick = (e) => {
+                            
+                            BuyFurniture(items,currentBasketItems,currentPlayerMoney,currentCanBuyNow)
+                            
+                        }
+
+                    }
+
+                } else {
+
+                    items[i].element.childNodes[1].onclick = (e) => {
+
+                        var index = parseInt(e.target.parentElement.getAttribute("index"))
+
+                        Post({preview:true,previewItem:items[index]})
+
+                        for( var i = 0; i < items.length; i++ ) {
+
+                            items[i].element.childNodes[1].classList.toggle("selected",false)
+
+                        }
+
+                        e.target.classList.toggle("selected",true)
+
+                        ShowAdd(items[index].price)
+
+                        addButton.onclick = (e) => {
+
+                            var newBasketItem = {
+                                label:items[index].label,
+                                name:items[index].name,
+                                price:items[index].price,
+                                categoryName:items[index].categoryName,
+                                stats:items[index].stats,
+                                count:items[index].count,
+                                selectable:true,
+                                selected:true,
+                            } 
+
+                            basketItems.push(newBasketItem)
+
+                            ShowBasket(basketItems.length)
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            basketButton.classList.toggle("off",false)
+
+            basketButton.onclick = (e) => {
+
+                addButton.onclick = null
+
+                OrderFurniture(basketItems,currentPlayerMoney,currentCanBuyNow)
+
+                backButton.onclick = (ee) => {
+
+                    BuyFurniture(items,currentBasketItems,currentPlayerMoney,currentCanBuyNow)
+
+                }
+
+            }
+
+            backButton.onclick = (e) => {
+
+                Post({close:true,basketItems:currentBasketItems})
+
+            }
+
+            clearButton.classList.toggle("off",true)
+            
+        }
+
+        function OrderFurniture(basketItems,playerMoney,canBuyNow) {
+
+            for( var i = 0; i < basketItems.length; i++) {
+
+                if( !basketItems[i].selectable ) {
+
+                    basketItems[i].selectable = true
+
+                    basketItems[i].selected = true
+
+                }
+
+            }
+
+            currentState = "order"
+
+            currentCanBuyNow = canBuyNow
+
+            currentBasketItems = basketItems
+
+            currentPlayerMoney = playerMoney
+
+            HideAll()
+
+            ShowBack()
+
+            ShowInventory(basketItems)
+
+            ShowInspector()
+
+            ShowBuy(basketItems)
+
+            header1.innerHTML = "Ting"
+
+            header2.innerHTML = "Kurv"
+
+            inventoryBackButton.classList.toggle("off",true)
+
+            for( var i = 0; i < basketItems.length; i++) {
+
+                basketItems[i].element.childNodes[0].onclick = (e) => {
+
+                    var index = parseInt(e.target.parentElement.getAttribute("index"))
+
+                    basketItems[index].selected = !basketItems[index].selected
+
+                    e.target.classList.toggle("selected",basketItems[index].selected)
+
+                    ShowBuy(basketItems)
+
+                }
+
+            }
+
+            backButton.onclick = (e) => {
+
+                Post({close:true,basketItems:currentBasketItems})
+
+            }
+
+            buyButton.onclick = (e) => {
+
+                ShowMessage("Are you sure?",(ok)=>{
+
+                    if( ok ) {
+
+                        Post({close:true,buy:true,basketItems:currentBasketItems})
+
+                    }
+
+                })
+
+            }
+
+            clearButton.classList.toggle("off",currentBasketItems.length == 0)
+
+            clearButton.onclick = (e) => {
+
+                var allSelected = true
+
+                for( var i = 0; i < currentBasketItems.length; i++) {
+
+                    if( currentBasketItems[i].selected == false ) {
+
+                        allSelected = false
+
+                    }
+
+                }
+
+                if( allSelected ) {
+
+                    ShowMessage("Clear all?",(ok) => {
+
+                        if( ok ) {
+
+                            currentBasketItems = []
+
+                            ShowInventory(currentBasketItems)
+
+                            ShowBuy(currentBasketItems)
+
+                            for( var i = 0; i < currentBasketItems.length; i++) {
+
+                                currentBasketItems[i].element.childNodes[0].onclick = (e) => {
+
+                                    var index = parseInt(e.target.parentElement.getAttribute("index"))
+
+                                    currentBasketItems[index].selected = !currentBasketItems[index].selected
+
+                                    e.target.classList.toggle("selected",currentBasketItems[index].selected)
+
+                                    ShowBuy(currentBasketItems)
+
+                                }
+
+                            }
+
+                            clearButton.classList.toggle("off",currentBasketItems.length == 0)
+
+                        }
+
+                    })
+
+                } else {
+
+                    for( var i = currentBasketItems.length-1; i >= 0; i-- ) {
+
+                        if( currentBasketItems[i].selected == false ) {
+
+                            currentBasketItems.splice(i, 1);
+
+                        }
+
+                    }
+
+                }
+
+                ShowInventory(currentBasketItems)
+
+                ShowBuy(currentBasketItems)
+
+                for( var i = 0; i < currentBasketItems.length; i++) {
+
+                    currentBasketItems[i].element.childNodes[0].onclick = (e) => {
+
+                        var index = parseInt(e.target.parentElement.getAttribute("index"))
+
+                        currentBasketItems[index].selected = !currentBasketItems[index].selected
+
+                        e.target.classList.toggle("selected",currentBasketItems[index].selected)
+
+                        ShowBuy(currentBasketItems)
+
+                    }
+
+                }
+
+                clearButton.classList.toggle("off",currentBasketItems.length == 0)
+
+            }
+
+        }
+
+        function PlaceFurniture(ownedItems,category,scroll) {
+
+            currentState = "place"
+
+            HideAll()
+
+            ShowBack()
+
+            ShowInventory(ownedItems)
+
+            ShowInspector()
+
+            ShowPlace()
+
+            header2.innerHTML = "Actions"
+
+            header1.innerHTML = "Inventory"
+
+            inventoryBackButton.classList.toggle("off",true)
+
+            placeButton.classList.toggle("disabled",true)
+
+            sellButton.classList.toggle("disabled",true)
+                        
+            for( var i = 0; i < ownedItems.length; i++ ) {
+
+                if( ownedItems[i].models != null && typeof(ownedItems[i].models) == "object") {
+
+                    ownedItems[i].element.childNodes[1].onclick = (e) => {
+
+                        var index = parseInt(e.target.parentElement.getAttribute("index"))
+
+                        PlaceFurniture(ownedItems[index].models)
+
+                        currentCategoty = index
+
+                        inventoryBackButton.classList.toggle("off",false)
+
+                        inventoryBackButton.onclick = (e) => {
+                            
+                            PlaceFurniture(ownedItems)
+                            
+                        }
+
+                    }
+
+                } else {
+
+                    ownedItems[i].element.childNodes[1].onclick = (e) => {
+
+                        var index = parseInt(e.target.parentElement.getAttribute("index"))  
+    
+                        Post({placeFurnitureSelect:true,placeFurnitureSelect:ownedItems[index]})
+
+                        for( var i = 0; i < ownedItems.length; i++ ) {
+
+                            ownedItems[i].element.childNodes[1].classList.toggle("selected",false)
+
+                        }
+
+                        currentSelectedItem = ownedItems[index]
+
+                        e.target.classList.toggle("selected",true)
+
+                        Post({placeFurnitureSelect:true,placeFurnitureSelect:ownedItems[index]})
+
+                        if( ownedItems[index].placed ) {
+
+                            placeButton.innerHTML = "Edit"
+
+                            placeButton.classList.toggle("disabled",false)
+                            
+                            placeButton.onclick = (e) => {
+    
+                                Post({edit:true,editItem:currentSelectedItem,category:currentCategoty,scroll:GetCurrentScroll()})
+    
+                            }
+    
+                            sellButton.innerHTML = "Remove"
+
+                            sellButton.classList.toggle("disabled",false)
+    
+                            sellButton.onclick = (e) => {
+    
+                                ShowMessage("Are you sure?",(ok) => {
+                                    if (ok) {
+                                        Post({remove:true,removeItem:currentSelectedItem,category:currentCategoty,scroll:GetCurrentScroll()})
+                                    }    
+                                })
+    
+                            }
+    
+                        } else {
+
+                            placeButton.innerHTML = "Place"
+
+                            placeButton.classList.toggle("disabled",false)
+                            
+                            placeButton.onclick = (e) => {
+        
+                                Post({place:true,placeItem:currentSelectedItem,category:currentCategoty,scroll:GetCurrentScroll()})
+    
+                            }
+    
+                            sellButton.innerHTML = "Sell"
+
+                            sellButton.classList.toggle("disabled",false)
+    
+                            sellButton.onclick = (e) => {
+    
+                                ShowMessage("Are you sure?",(ok) => {
+                                    if (ok) {
+                                        Post({sell:true,sellItem:currentSelectedItem,category:currentCategoty,scroll:GetCurrentScroll()})
+                                    }
+                                })
+    
+                            }
+    
+                        }
+
+                    }
+
+                }
+
+                if( ownedItems[i].selected ) {
+
+                    placeButton.classList.toggle("disabled",false)
+
+                    sellButton.classList.toggle("disabled",false)
+
+                }
+
+            }
+    
+    
+            if( category != null && typeof(category) == "number" && category >= 0) {
+    
+                if (ownedItems[category]) {    
+                    PlaceFurniture(ownedItems[category].models)
+                }
+    
+    
+                currentCategoty = category
+    
+    
+                inventoryBackButton.classList.toggle("off",false)
+    
+    
+                inventoryBackButton.onclick = (e) => {    
+                    PlaceFurniture(ownedItems)    
+                }  
+            }
+    
+    
+            if( scroll != null && typeof(scroll) == "number" && scroll > 0) {
+                inventoryContainer.scrollTop = scroll   
+            }
+
+            backButton.onclick = (e) => {
+
+                Post({close:true})
+
+            }
+
+            clearButton.classList.toggle("off",true)
+            
+        }
+
+        function BuyPreset(items,playerMoney,canBuyNow) {
+
+            currentState = "buyPreset"
+
+            currentPlayerMoney = playerMoney
+
+            currentCanBuyNow = canBuyNow
+
+            HideAll()
+
+            ShowBack()
+
+            ShowInventory(items)
+
+            ShowInspector()
+
+            header2.classList.toggle("off",true)
+
+            header1.innerHTML = "Presets"
+
+            inventoryBackButton.classList.toggle("off",true)
+
+            for( var i = 0; i < items.length; i++ ) {
+
+                if( items[i].models != null && typeof(items[i].models) == "object") {
+
+                    items[i].element.childNodes[1].onclick = (e) => {
+
+                        var index = parseInt(e.target.parentElement.getAttribute("index"))
+
+                        BuyPreset(items[index].models,currentPlayerMoney,currentCanBuyNow)
+
+                        originalItems = items
+
+                        inventoryBackButton.classList.toggle("off",false)
+
+                        inventoryBackButton.onclick = (e) => {
+                            
+                            BuyPreset(originalItems,currentPlayerMoney,currentCanBuyNow)
+                            
+                        }
+
+                    }
+
+                } else {
+
+                    items[i].element.childNodes[1].onclick = (e) => {
+
+                        var index = parseInt(e.target.parentElement.getAttribute("index"))
+
+                        for( var i = 0; i < items.length; i++ ) {
+
+                            items[i].element.childNodes[1].classList.toggle("selected",false)
+
+                        }
+
+                        e.target.classList.toggle("selected",true)
+
+                        ShowPreset(items[index].price)
+
+                        orderButton.onclick = (e) => {
+
+                            var newItem = {
+                                label:items[index].label,
+                                name:items[index].name,
+                                preset:items[index].preset,
+                                categoryName:items[index].categoryName,
+                                price:items[index].price,
+                                stats:items[index].stats,
+                                count:items[index].count,
+                                selectable:true,
+                                selected:true,
+                            }
+
+                            OrderFurniture([newItem],currentPlayerMoney,currentCanBuyNow)
+
+                            clearButton.classList.toggle("off",true)
+
+                            inventoryBackButton.classList.toggle("off",true)
+
+                            backButton.onclick = (e) => {
+
+                                if( originalItems != null && originalItems.length > 0 ) {
+
+                                    BuyPreset(originalItems,currentPlayerMoney,currentCanBuyNow)
+
+                                } else { 
+
+                                    BuyPreset(items,currentPlayerMoney,currentCanBuyNow)
+
+                                }
+
+                            }
+
+                        }
+
+                        previewButton.onclick = (e) => {
+
+                            Post({close:true,previewPreset:true,previewPresetItem:items[index]})
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+            backButton.onclick = (e) => {
+
+                Post({close:true})
+
+            }
+
+            clearButton.classList.toggle("off",true)
+            
+        }
+
+        //lua communication
+
+        function Init(resName,cbName) {
+            resourceName = resName
+            callbackName = cbName
+            Post({init:true})
+        }
+
+        function Post(returnValue) {
+            $.post('https://'+resourceName+'/'+callbackName,JSON.stringify(returnValue));
+        }
+
+        function Listen(input) {
+
+            if( input && typeof(input) == "object" ) {
+
+                if( input.func && typeof(input.func) == "string" && window[input.func]) {
+
+                    if( input.arguments && typeof(input.arguments) == "object" ) {
+
+                        window[input.func](...input.arguments)
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        window.addEventListener('message', (e) => { Listen(e.data) })
+        window.addEventListener('keydown', (e) => { 
+            switch (e.key) {
+                case "Tab":
+                case "tab":
+                    e.preventDefault() 
+                break;
+
+                case "Escape":
+                case "escape":
+                case "Esc":
+                case "esc":
+                    Post({close:true,basketItems:currentBasketItems})
+                break;
+            }
+        })
+
+        //test
+
+        /*
+        Listen({
+           func:"BuyFurniture",
+           arguments:[
+               [
+                   {label:"tableA",price:100},
+                   {label:"tableB",price:200},
+                   {label:"tableC",price:300},
+                   {label:"tableD",price:400},
+                   {label:"tableE",price:500},
+                   {label:"tableF",price:600},
+                   {label:"tableG",price:700},
+                   {label:"tableH",price:800},
+               ],
+               [],
+               10000,
+           ],
+        })
+
+        Listen({
+           func:"OrderFurniture",
+           arguments:[
+               [
+                   {label:"tableA",price:100},
+                   {label:"tableB",price:200},
+                   {label:"tableC",price:300},
+                   {label:"tableD",price:400},
+                   {label:"tableE",price:500},
+                   {label:"tableF",price:600},
+                   {label:"tableG",price:700},
+                   {label:"tableH",price:800},
+               ],
+               10000,
+               "Check out at the register"
+           ],
+        })
+
+        Listen({
+           func:"PlaceFurniture",
+           arguments:[
+               [
+                   {label:"tableA",price:100},
+                   {label:"tableB",price:200},
+                   {label:"tableC",models:[{label:"A",price:300},{label:"B",price:400},{label:"C",price:500},],},
+                   {label:"tableD",price:400},
+                   {label:"tableE",price:500},
+                   {label:"tableF",price:600},
+                   {label:"tableG",price:700},
+                   {label:"tableH",price:800},
+               ],
+           ],
+        })
+
+        Listen({
+           func:"BuyPreset",
+           arguments:[
+               [
+                   {label:"presetA",price:100},
+                   {label:"presetB",price:200},
+                   {label:"presetC",models:[{label:"A",price:300},{label:"B",price:400},{label:"C",price:500},],},
+                   {label:"presetD",price:400},
+                   {label:"presetE",price:500},
+                   {label:"presetF",price:600},
+                   {label:"presetG",price:700},
+                   {label:"presetH",price:800},
+               ],
+           ],
+        })
+        */
+
+        HideAll()
+        
+
+    </script>
+    
+</html>

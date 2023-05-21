@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CVehicleModelInfoVariation>
+	<variationData>
+		<Item>
+			<modelName>caralsc</modelName>
+			<colors>
+				<Item>
+					<indices content="char_array">
+						134
+						134
+						0
+						156
+					</indices>
+          <liveries/>
+				</Item>
+			</colors>
+			<kits/>
+			<windowsWithExposedEdges />
+			<plateProbabilities>
+			<Probabilities>
+          <Item>
+            <Name>standard white</Name>
+            <Value value="100" />
+          </Item>
+			</Probabilities>
+			</plateProbabilities>
+			<lightSettings value="450" />
+			<sirenSettings value="3031" />
+		</Item>
+	</variationData>
+</CVehicleModelInfoVariation>

@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+
+  <style type="text/css">
+    body {        
+      margin: 0;
+      padding: 0;
+      font-family: 'Balsamiq Sans', cursive;
+    }
+
+    .panel {
+      display: none;
+      position: absolute;
+      width: auto;
+      height: auto;
+      min-width: 320px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      background-color: rgb(40,40,50);
+      border-radius: 10px;
+      box-shadow: 0 5px 30px black;
+    }
+
+    .header {
+      position: relative;
+      width: 100%;
+      height: 80px;
+      background-color: rgb(30,30,40);
+
+      display: grid;
+      grid-template-columns: 60px auto;
+      grid-template-rows: 100%;
+      border-radius: 10px 10px 0px 0px;
+      border-bottom: 3px solid rgba(0,0,0,0.1);
+
+      color: rgba(255,255,255,1);
+      font-size: 22px;
+      line-height: 80px;
+      user-select: none;
+    }
+
+    .back-button {
+      font-size: 22px;
+      line-height: 80px;
+      text-align: center;
+    }
+
+    .back-button:hover {
+      color: #3399ff;
+      cursor: pointer;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+    }
+
+    .item {
+      width: 100%;
+      height: auto;
+      margin-bottom: 15px;
+    }      
+
+    .street-number {
+      width: 100%;
+      max-width: 300px;
+      margin: 20px auto;
+    }
+
+    .street-number input {
+      font-size: 22px;
+      padding: 0;
+      border: 2px solid #ccc;
+      border-left: 0;
+      width: 100%;
+      color: #666;
+      border-radius: 0 7px 7px 0;
+      font-family: 'PT Sans', sans-serif;
+      font-weight: bold;
+    }
+
+    .street-number input:focus {
+      outline: 0;
+    }
+
+    .street-number > .flex {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .street-number > .flex input {
+      max-width: 300px;
+      flex: 1 1 300px;
+      color: rgba(110,110,110,1.0);
+    }
+
+    .street-number > .flex .currency {
+      font-size: 20px;
+      padding: 0 10px 0 20px;
+      color: #999;
+      border: 2px solid #ccc;
+      border-right: 0;
+      line-height: 2.5;
+      border-radius: 7px 0 0 7px;
+      background: white;
+    }
+
+    .grid {
+      display: grid;
+    }
+
+    .grid-two {
+      grid-template-rows: 100%;
+      grid-template-columns: repeat(2,50%);
+    }
+
+    .grid-three {
+      grid-template-rows: 100%;
+      grid-template-columns: repeat(3,33.33%);
+    }
+
+    .fas-button {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 32px;
+      text-align: center;
+      line-height: 50px;
+      color: rgba(255,255,255,1);
+      transition: color 0.3s;
+    }
+
+    .fas-button:hover {
+      color: #3399ff;
+      cursor:pointer;
+      opacity: 1.0;
+    }
+
+    .fas-button-active {
+      color: #3399ff;
+      opacity: 0.7;
+      transition: color 0.3s;
+    }
+
+    .slider {
+      background: linear-gradient(to right, #3399ff 0%, #0066cc 50%, #fff 50%, #fff 100%);
+      border: solid 1px #0066cc;
+      border-radius: 8px;
+      position: relative;
+      height: 5px;
+      width: 100%;
+      outline: none;
+      transition: background 450ms ease-in;
+      -webkit-appearance: none;
+    }
+
+    .slider1 {
+      border: solid 1px #0066cc;
+      border-radius: 8px;
+      position: relative;
+      height: 20px;
+      width: 100%;
+      outline: none;
+      transition: background 450ms ease-in;
+      -webkit-appearance: none;
+      text-align: center;
+      font-family: 'Balsamiq Sans';
+    }
+
+    .slider-container {
+      width: 100%;
+      max-width: 300px;
+      margin: 0px auto;
+    }
+
+    .progress-bar {
+      width: auto;
+      height: 120px;
+    }
+
+    .progress-bar .circle{
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      background: rgba(50,50,60,1.0);
+      height: 150px;
+      width: 150px;
+      border-radius: 50%;
+      cursor: default;
+    }
+
+    .progress-bar .circle .box,
+    .progress-bar .circle .box span{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+
+    .progress-bar .circle .box{
+      height: 100%;
+      width: 100%;
+      background: rgba(30,30,40,0.0);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0.85);
+      transition: all 0.2s;
+    }
+
+    .progress-bar .circle .box span,
+    .progress-bar .text{
+      background: rgba(110,110,120,1.0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      user-select: none;
+    }
+    
+    .circle .box span{
+      font-size: 14px;
+      font-weight: 600;
+      transform: translate(-50%, -50%);
+      transition: all 0.1s;
+      text-align: center;
+    }
+
+    label {
+      color: rgba(255,255,255,1);
+      display: block;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      font-size: 16px;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      text-indent: 10px;
+    }
+
+    select {
+      margin: 0px 5px 10px 5px;
+      overflow-y: hidden;
+      font-size: 16px;
+      background-color: rgb(70,70,80);
+      color: white;
+      outline: none;
+      border: 1px solid white;
+      border-radius: 5px;
+    }
+
+    option {
+      background-color: rgb(70,70,80);      
+    }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      height: 40px;
+      line-height: 40px;
+      background-color: rgb(50,50,60);
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      box-shadow: 0 5px 15px black;
+      
+      position: absolute;
+      z-index: 1;
+      top: calc(100% + 5px);
+      left: 50%;
+      margin-left: -60px;
+      font-size: 16px;
+      font-family: 'Balsamiq Sans', cursive;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+
+    .tooltiptext {      
+      z-index: 10;
+    }
+
+    .address-label-container {
+      margin: 0px 20px;
+    }
+
+    .container {
+      /*left: 70px;*/
+      display: block;
+      width: auto;
+      position: relative;
+      margin: 10px auto;
+      cursor: pointer;
+      font-size: 16px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    /* Hide the browser's default checkbox */
+    .container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    /* Create a custom checkbox */
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: -20px;
+      height: 20px;
+      width: 20px;
+      border-radius: 5px;
+      background-color: #eee;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .container:hover input ~ .checkmark {
+      background-color: #ccc;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    .container input:checked ~ .checkmark {
+      background-color: #2196F3;
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    /* Show the checkmark when checked */
+    .container input:checked ~ .checkmark:after {
+      display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .container .checkmark:after {
+      left: 6px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  </style>
+<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script><script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+<body>
+  <div id="creation-panel" class="panel">
+    <div class="header">
+      <div class="back-button fas fa-arrow-left" onclick="CancelCreation()"></div>
+      <div class="header-text">Opret et House</div>
+    </div>
+
+    <div class="content">
+      <div class="item">
+        <form class="street-number">
+          <label for="street-number">Hus nummer</label>
+          <div class="flex">
+            <span class="currency">#</span>
+            <input id="street-number" name="street-number" type="text" maxlength="15" onchange="SetStreetNumber(this)"/>
+          </div>
+        </form> 
+      </div>
+
+      <div class="item">
+        <div class="grid grid-three">
+          <div id="setup-polyzone" class="tooltip fas-button fas fa-cube" onclick="SetupPolyZone()">
+            <span class="tooltiptext">PolyZone</span>
+          </div>
+          <div id="setup-shell" class="tooltip fas-button fas fa-home" onclick="SetupShell()">
+            <span class="tooltiptext">Shell</span>
+          </div>
+          <div id="setup-doors" class="tooltip fas-button fas fa-door-closed" onclick="SetupDoors()">
+            <span class="tooltiptext">Døre</span>
+          </div>          
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="tooltip fas-button fas fa-check" onclick="FinishCreation()">
+          <span class="tooltiptext">Færdig</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="locksmith-panel" class="panel">
+    <div class="header">
+      <div class="back-button fas fa-arrow-left" onclick="CloseLocksmith()"></div>
+      <div class="header-text">Låsesmed</div>
+    </div>
+
+    <div class="content">
+      <label for="select-house">Vælg hvilket hus</label>
+      <select id="select-house" size="6">
+        <option selected>123 Bolivar Dr, Bolivar</option>
+        <option>234 Testor Pl, Testorina</option>
+        <option>Test</option>
+        <option>Test</option>
+      </select>
+
+      <div class="item">
+        <div class="grid grid-two">
+          <div class="tooltip fas-button fas fa-key" onclick="NewKey()">
+            <span class="tooltiptext">Ny nøgle</span>
+          </div>
+          <div class="tooltip fas-button fas fa-sync-alt" onclick="ResetLocks()">
+            <span class="tooltiptext">Reset nøgler</span>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+
+  <div id="sales-panel" class="panel">
+    <div class="header">
+      <div class="back-button fas fa-arrow-left" onclick="CloseSales()"></div>
+      <div class="header-text">Sælg Hus</div>
+    </div>
+
+    <div class="content">
+      <div class="item">
+        <div class="address-label-container" id="sales-label">
+          <label>123 Bolivar Dr, Bolivar, 5019</label>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="grid grid-three">
+          <div id="polyzone-setup" class="tooltip fas-button fas fa-cube">
+            <span class="tooltiptext">PolyZone</span>
+          </div>
+          <div id="shell-setup" class="tooltip fas-button fas fa-home">
+            <span class="tooltiptext">Shell</span>
+          </div>
+          <div id="doors-setup" class="tooltip fas-button fas fa-door-closed">
+            <span class="tooltiptext">Døre</span>
+          </div>          
+        </div>
+      </div>
+
+      <div id="commission-slider" class="item">
+        <div class="slider-container">
+          <label for="set-commission">Set Kommision</label>
+          <input id="set-commission" class="slider" min="0" max="10000" type="range" value="5000" step="100" oninput="MoveCommissionSlider(this)"/>
+        </div>
+      </div>
+
+      <div id="price-slider" class="item">
+        <div class="slider-container">
+          <label for="set-price">Set Pris</label>
+          <input id="set-price" class="slider1" min="0" max="10000000" value="5000" step="100" oninput="MovePriceSlider(this)"/>
+        </div>
+      </div>
+
+      <div class="item">
+        <div id="sales-progress-bars" class="grid grid-three">
+          <div class="progress-bar" id="progress-price"></div>
+          <div class="progress-bar" id="progress-modifier"></div>
+          <div class="progress-bar" id="progress-commission"></div>
+        </div>
+      </div> 
+
+      <!-- <label class="container">Financeable
+        <input id="set-financeable" type="checkbox" onchange="SetFinanceable(this)">
+        <span class="checkmark"></span>
+      </label> -->
+<!-- 
+      <div id="downpayment-slider" class="item">
+        <div class="slider-container">
+          <label for="set-downpayment">Set Downpayment</label>
+          <input id="set-downpayment" class="slider" min="0" max="10000" type="range" value="5000" step="100" oninput="SetDownpayment(this)"/>
+        </div>
+      </div>
+
+      <div id="min-repayment-slider" class="item">
+        <div class="slider-container">
+          <label for="set-min-repayment">Set Min Repayment</label>
+          <input id="set-min-repayment" class="slider" min="0" max="10000" type="range" value="5000" step="100" oninput="SetMinRepayment(this)"/>
+        </div> -->
+      </div>
+
+      <div class="item">
+        <div id="finance-progress-bars" class="grid grid-two">
+          <div class="progress-bar" id="progress-downpayment"></div>
+          <div class="progress-bar" id="progress-min-repayment"></div>
+        </div>
+      </div> 
+
+      <div class="item">
+        <div class="tooltip fas-button fas fa-check" onclick="FinishSale()">
+          <span class="tooltiptext">Færdig</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="purchase-panel" class="panel">
+    <div class="header">
+      <div class="back-button fas fa-arrow-left" onclick="DeclinePurchase()"></div>
+      <div class="header-text">Køb hus</div>
+    </div>
+
+    <div class="content">
+      <div class="item">
+        <div class="address-label-container" id="purchase-label">
+          <label>123 Bolivar Dr, Bolivar, 5019</label>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="grid grid-three">
+          <div id="polyzone-set" class="fas-button fas fa-cube"></div>
+          <div id="shell-set" class="fas-button fas fa-home"></div>
+          <div id="doors-set" class="fas-button fas fa-door-closed"></div>          
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="grid grid-two">
+          <div class="progress-bar" id="progress-purchase-price"></div>
+          <div class="progress-bar" id="progress-purchase-modifier"></div>
+        </div>
+      </div> 
+
+      <!-- <label class="container" id="finance-house-checkbox-container">Finance House
+        <input id="finance-house-checkbox" type="checkbox" onchange="FinanceHouse(this)">
+        <span class="checkmark"></span>
+      </label> -->
+
+      <!-- <div class="item" id="purchase-downpayment-slider">
+        <div class="slider-container">
+          <label for="set-purchase-downpayment">Deposit Amount</label>
+          <input id="set-purchase-downpayment" class="slider" min="0" max="10000" type="range" value="5000" step="100" oninput="SetPurchaseDownpayment(this)"/>
+        </div>
+      </div> -->
+
+      <!-- <div class="item">
+        <div id="purchase-finance-progress-bars" class="grid grid-two">
+          <div class="progress-bar" id="progress-purchase-downpayment"></div>
+          <div class="progress-bar" id="progress-purchase-min-repayment"></div>
+        </div>
+      </div>  -->
+
+      <div class="item">
+        <div class="grid grid-two" id="purchase-buttons">
+          <div class="tooltip fas-button fas fa-dollar-sign" onclick="AcceptPurchase()">
+            <span class="tooltiptext">Køb</span>
+          </div>
+          <!-- <div id="accept-finance-button" class="tooltip fas-button fas fa-file-signature" onclick="AcceptFinance()">
+            <span class="tooltiptext">Finance</span>
+          </div> -->
+          <div class="tooltip fas-button fas fa-ban" onclick="DeclinePurchase()">
+            <span class="tooltiptext">Afvis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="mortgage-panel" class="panel">
+    <div class="header">
+      <div class="back-button fas fa-arrow-left" onclick="CloseMortgage()"></div>
+      <div class="header-text">Mortgage</div>
+    </div>
+
+    <div class="content">
+      <div class="item">
+        <div class="address-label-container" id="mortgage-label">
+          <label>123 Bolivar Dr, Bolivar, 5019</label>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="slider-container">
+          <label for="mortgage-payment">Repay Amount</label>
+          <input id="mortgage-payment" class="slider" min="0" max="10000" type="range" value="5000" step="100" oninput="MoveMortgageSlider(this)"/>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="grid grid-two">
+          <div class="progress-bar" id="mortgage-repayed-progress"></div>
+          <div class="progress-bar" id="mortgage-repay-amount"></div>
+        </div>
+      </div> 
+
+      <div class="item">
+        <div class="grid grid-two">
+          <div class="tooltip fas-button fas fa-dollar-sign" onclick="PayMortgage()">
+            <span class="tooltiptext">Pay</span>
+          </div>
+          <div class="tooltip fas-button fas fa-ban" onclick="CloseMortgage()">
+            <span class="tooltiptext">Close</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="myInputContainer" style="display:none;">
+    <input id="myInput">
+  </div>
+
+  <script type="text/javascript"> 
+    var maxHousePrice = 500000;
+    var maxCommission = 10000;
+    var minRepayments = 0;
+    var progressBars = {};
+    var resourceName = '';
+    var maxResalePercent = 5;
+
+    function ProgressBar(parentElement,gradient,label,text,value) { 
+      var size = 140;
+
+      var circle = document.createElement('DIV');
+      var bar = document.createElement('DIV');
+      var box = document.createElement('DIV');
+
+      circle.appendChild(bar);
+      circle.appendChild(box);
+      parentElement.appendChild(circle);
+
+      bar.className = "bar";
+      circle.className = "circle";
+      box.className = "box";
+
+      circle.style.width = `${size}px`;
+      circle.style.height = `${size}px`;
+
+      box.innerHTML = `<span>${label}<br><div style='font-size:20px; white-space:nowrap;'>${text}</div></span>`;
+
+      this.options = {
+        startAngle: -1.55,
+        size: size,
+        value: value,
+        fill: {gradient: gradient},        
+        animation: {
+          duration: 100,
+          easing: 'circleProgressEasing'
+        },
+      }
+
+      this.bar = bar;
+      this.box = box;
+
+      $(bar).circleProgress(this.options);
+
+      this.setValue = function(val) {
+        this.options.animationStartValue = this.options.value;
+        this.options.value = val;
+        $(this.bar).circleProgress(this.options);
+      }
+
+      this.setText = function(label,text) {
+        this.box.innerHTML = `<span>${label}<br><div style='font-size:20px; white-space:nowrap;'>${text}</div></span>`;
+      }
+    }
+
+    function ShowMortgagePanel(data) {
+      $("#mortgage-panel").css("display","block");
+      $("#mortgage-label").html(`<label>${data.houseInfo.streetNumber} ${data.houseInfo.streetName}, ${data.houseInfo.suburb}, ${data.houseInfo.postCode}</label>`);
+
+      var repayProgress = document.getElementById('mortgage-repayed-progress');
+      var repayAmount = document.getElementById('mortgage-repay-amount');
+
+      var totalPrice = data.salesInfo.salePrice + (data.salesInfo.isRealtor ? data.salesInfo.commission : 0);
+      var minusRepayed = totalPrice - data.salesInfo.repayed;
+      var minRepayment = Math.min(data.salesInfo.minRepayments,minusRepayed);
+      var maxRepayment = minusRepayed <= data.salesInfo.minRepayments ? minusRepayed : Math.max(data.salesInfo.minRepayments,minusRepayed);
+
+      if (progressBars['mortgage-repayed-progress'] == null) {
+        progressBars['mortgage-repayed-progress'] = new ProgressBar(repayProgress,['#3399ff', '#0066cc'],"Remaining","$"+minusRepayed,minusRepayed / totalPrice);
+        progressBars['mortgage-repay-amount'] = new ProgressBar(repayAmount,['#3399ff', '#0066cc'],"Repayment",minRepayment,minRepayment/minusRepayed);
+
+      } else {
+        progressBars['mortgage-repayed-progress'].setValue(minusRepayed / totalPrice);
+        progressBars['mortgage-repayed-progress'].setText("Remaining","$"+minusRepayed);
+
+        progressBars['mortgage-repay-amount'].setValue(minRepayment/minusRepayed);
+        progressBars['mortgage-repay-amount'].setText("Repayment",minRepayment);
+      }
+
+      var paymentSlider = document.getElementById('mortgage-payment');
+
+      paymentSlider.min = minRepayment;
+      paymentSlider.max = maxRepayment;
+      paymentSlider.value = minRepayment;
+      paymentSlider.style.background = 'linear-gradient(to right, #3399ff 0%, #0066cc ' + ((minusRepayed / 100)/minusRepayed*100) + '%, #fff ' + ((minusRepayed / 100)/minusRepayed*100) + '%, white 100%)';
+    }
+
+    function ShowSalesPanel(data) {
+      $("#sales-panel").css("display","block"); 
+      $("#sales-label").html(`<label>${data.houseInfo.streetNumber} ${data.houseInfo.streetName}, ${data.houseInfo.suburb}, ${data.houseInfo.postCode}</label>`);
+
+      var maxPrice = (data.salesInfo.salePrice || 0) + (data.salesInfo.isRealtor ? 0 : ((data.salesInfo.salePrice || 0) / maxResalePercent));
+      var price = document.getElementById('progress-price');
+      var modifier = document.getElementById('progress-modifier');
+      var commission = document.getElementById('progress-commission');
+      var minRepayment = document.getElementById('progress-min-repayment');
+      var downpayment = document.getElementById('progress-downpayment');
+      var comSlider = document.getElementById('set-commission');
+      var priceSlider = document.getElementById('set-price');
+      var doors = document.getElementById('doors-setup');
+      var shell = document.getElementById('shell-setup');
+      var poly = document.getElementById('polyzone-setup'); 
+
+      if (data.polyZone.usePolyZone) {
+        if (!poly.classList.contains("fas-button-active")) {
+          poly.classList.add("fas-button-active");
+        }
+      } else {
+        poly.classList.remove("fas-button-active");
+      }
+
+      if (data.shell.useShell) {
+        if (!shell.classList.contains("fas-button-active")) {
+          shell.classList.add("fas-button-active");
+        }
+      } else {
+        shell.classList.remove("fas-button-active");
+      }
+
+      if (data.doors.length > 0) {
+        if (!doors.classList.contains("fas-button-active")) {
+          doors.classList.add("fas-button-active");
+        }
+      } else {
+        doors.classList.remove("fas-button-active");
+      }
+
+      if (data.salesInfo.isRealtor) {
+        $("#progress-commission").css("display","block");
+        $("#commission-slider").css("display","block");
+        $("#price-slider").css("display","block");
+
+        if ($("#sales-progress-bars").hasClass("grid-two")) {
+          $("#sales-progress-bars").removeClass("grid-two");
+          $("#sales-progress-bars").addClass("grid-three");
+        }
+      } else {
+        $("#progress-commission").css("display","none");
+        $("#commission-slider").css("display","none");
+        $("#price-slider").css("display","block");
+
+        if ($("#sales-progress-bars").hasClass("grid-three")) {
+          $("#sales-progress-bars").removeClass("grid-three");
+          $("#sales-progress-bars").addClass("grid-two");
+        }
+      }
+
+      if (progressBars['sales-price-progress'] == null) {
+        progressBars['sales-price-progress'] = new ProgressBar(price,['#3399ff', '#0066cc'],"Price",(data.salesInfo.salePrice || 0),(data.salesInfo.salePrice || 0) / maxPrice);
+        progressBars['sales-modifier-progress'] = new ProgressBar(modifier,['#3399ff', '#0066cc'],"Modifier","x"+data.houseInfo.modifier,data.houseInfo.modifier / 5);
+        progressBars['sales-commission-progress'] = new ProgressBar(commission,['#3399ff', '#0066cc'],"Commission",(data.salesInfo.commission || 0),(data.salesInfo.commission || 0) / maxCommission);
+        progressBars['progress-min-repayment'] = new ProgressBar(minRepayment,['#3399ff', '#0066cc'],"Min Repayment",Math.max(minRepayments,(data.salesInfo.minRepayments || 0)),Math.max(minRepayments,(data.salesInfo.minRepayments || 0)) / maxPrice);
+        progressBars['progress-downpayment'] = new ProgressBar(downpayment,['#3399ff', '#0066cc'],"Downpayment",(data.salesInfo.downpayment || 500),(data.salesInfo.downpayment || 500) / maxPrice);
+      } else {
+        progressBars['sales-price-progress'].setValue((data.salesInfo.salePrice || 0) / maxPrice);
+        progressBars['sales-price-progress'].setText("Price",(data.salesInfo.salePrice || 0));
+
+        progressBars['sales-modifier-progress'].setValue(data.houseInfo.modifier / 5);
+        progressBars['sales-modifier-progress'].setText("Modifier","x"+data.houseInfo.modifier);
+
+        progressBars['sales-commission-progress'].setValue((data.salesInfo.commission || 0) / maxCommission);
+        progressBars['sales-commission-progress'].setText("Commission",(data.salesInfo.commission || 0));
+
+        progressBars['progress-min-repayment'].setValue(Math.max(minRepayments,(data.salesInfo.minRepayments || 0)) / maxPrice);
+        progressBars['progress-min-repayment'].setText("Min Repayment",Math.max(minRepayments,(data.salesInfo.minRepayments || 0)));
+
+        progressBars['progress-downpayment'].setValue((data.salesInfo.downpayment || 500) / maxPrice);
+        progressBars['progress-downpayment'].setText("Downpayment",(data.salesInfo.downpayment || 500));
+      }
+
+      var comValue = (data.salesInfo.commission || 0)/maxCommission*100;
+      comSlider.value = (data.salesInfo.commission || 0);
+      comSlider.min = 0;
+      comSlider.max = maxCommission;
+      comSlider.style.background = 'linear-gradient(to right, #3399ff 0%, #0066cc ' + comValue + '%, #fff ' + comValue + '%, white 100%)';
+
+      var priceValue = (data.salesInfo.salePrice || 0)/maxPrice*100;
+      priceSlider.min = 0;
+      priceSlider.max = maxPrice;
+      priceSlider.value = (data.salesInfo.salePrice || 0);
+      priceSlider.style.background = 'linear-gradient(to right, #3399ff 0%, #0066cc ' + priceValue + '%, #fff ' + priceValue + '%, white 100%)';
+
+      document.getElementById('finance-progress-bars').style.display = "none";
+      document.getElementById('set-financeable').checked = false;
+
+      var minRepaySlider = document.getElementById('set-min-repayment');
+      var downpaymentSlider = document.getElementById('set-downpayment');
+
+      $("#min-repayment-slider").css("display","none");
+      $("#downpayment-slider").css("display","none");
+
+      minRepaySlider.min = minRepayments;
+      minRepaySlider.max = maxPrice;
+      minRepaySlider.value = maxPrice / 100;
+      minRepaySlider.style.background = 'linear-gradient(to right, #3399ff 0%, #0066cc ' + ((maxPrice / 100)/maxPrice*100) + '%, #fff ' + ((maxPrice / 100)/maxPrice*100) + '%, white 100%)';
+
+      downpaymentSlider.min = 500;
+      downpaymentSlider.max = maxPrice;
+      downpaymentSlider.value = maxPrice / 20;
+      downpaymentSlider.style.background = 'linear-gradient(to right, #3399ff 0%, #0066cc ' + ((maxPrice / 20)/maxPrice*100) + '%, #fff ' + ((maxPrice / 20)/maxPrice*100) + '%, white 100%)';
+    }
+
+    function ShowCreationPanel(data) {
+      $("#creation-panel").css("display","block");
+
+      var price = document.getElementById('price-progress');
+      var modifier = document.getElementById('modifier-progress');
+      var streetNumber = document.getElementById('street-number');
+      var doors = document.getElementById('setup-doors');
+      var shell = document.getElementById('setup-shell');
+      var poly = document.getElementById('setup-polyzone');
+
+      if (data.polyZone != undefined) {
+        if (!poly.classList.contains("fas-button-active")) {
+          poly.classList.add("fas-button-active");
+        }
+      } else {
+        poly.classList.remove("fas-button-active");
+      }
+
+      if (data.shell != undefined) {
+        if (!shell.classList.contains("fas-button-active")) {
+          shell.classList.add("fas-button-active");
+        }
+      } else {
+        shell.classList.remove("fas-button-active");
+      }
+
+      if (data.doors != undefined && data.doors.length > 0) {
+        if (!doors.classList.contains("fas-button-active")) {
+          doors.classList.add("fas-button-active");
+        }
+      } else {
+        doors.classList.remove("fas-button-active");
+      }
+
+      streetNumber.value = data.streetNumber;
+    }
+
+    function ShowPurchasePanel(data) {
+      $("#purchase-panel").css("display","block"); 
+      $("#purchase-label").html(`<label>${data.houseInfo.streetNumber} ${data.houseInfo.streetName}, ${data.houseInfo.suburb}, ${data.houseInfo.postCode}</label>`);
+
+      var price = document.getElementById('progress-purchase-price');
+      var modifier = document.getElementById('progress-purchase-modifier');
+      var minRepay = document.getElementById('progress-purchase-min-repayment');
+      var downpayment = document.getElementById('progress-purchase-downpayment');
+      var doors = document.getElementById('doors-set');
+      var shell = document.getElementById('shell-set');
+      var poly = document.getElementById('polyzone-set'); 
+
+      if (data.polyZone.usePolyZone) {
+        if (!poly.classList.contains("fas-button-active")) {
+          poly.classList.add("fas-button-active");
+        }
+      } else {
+        poly.classList.remove("fas-button-active");
+      }
+
+      if (data.shell.useShell) {
+        if (!shell.classList.contains("fas-button-active")) {
+          shell.classList.add("fas-button-active");
+        }
+      } else {
+        shell.classList.remove("fas-button-active");
+      }
+
+      if (data.doors.length > 0) {
+        if (!doors.classList.contains("fas-button-active")) {
+          doors.classList.add("fas-button-active");
+        }
+      } else {
+        doors.classList.remove("fas-button-active");
+      }
+
+      if (progressBars['purchase-price-progress'] == null) {
+        progressBars['purchase-price-progress'] = new ProgressBar(price,['#3399ff', '#0066cc'],"Price",data.salesInfo.salePrice + (data.salesInfo.isRealtor ? data.salesInfo.commission : 0),1.0);
+        progressBars['purchase-modifier-progress'] = new ProgressBar(modifier,['#3399ff', '#0066cc'],"Modifier","x"+data.houseInfo.modifier,data.houseInfo.modifier / 5);
+        progressBars['progress-purchase-downpayment'] = new ProgressBar(downpayment,['#3399ff', '#0066cc'],"Downpayment",data.salesInfo.minDeposit + (data.salesInfo.isRealtor ? data.salesInfo.commission : 0),0.0);
+        progressBars['progress-purchase-min-repayment'] = new ProgressBar(minRepay,['#3399ff', '#0066cc'],"Min Repayment",data.salesInfo.minRepayments,1.0);
+      } else {
+        progressBars['purchase-price-progress'].setValue(100);
+        var formatter = new Intl.NumberFormat('da-DK', {
+          style: 'currency',
+          currency: 'DKK',
+
+          maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+        });
+
+        var PurchaseCalc = data.salesInfo.salePrice + (data.salesInfo.isRealtor ? data.salesInfo.commission : 0);
+        var textPricePurchase = formatter.format(PurchaseCalc);
+
+        progressBars['purchase-price-progress'].setText("Price",textPricePurchase);
+
+        progressBars['purchase-modifier-progress'].setValue(data.houseInfo.modifier / 5);
+        progressBars['purchase-modifier-progress'].setText("Modifier","x"+data.houseInfo.modifier);
+
+        // progressBars['progress-purchase-downpayment'].setValue(0.0);
+        // progressBars['progress-purchase-downpayment'].setText("Downpayment",data.salesInfo.minDeposit + (data.salesInfo.isRealtor ? data.salesInfo.commission : 0));
+
+        // progressBars['progress-purchase-min-repayment'].setValue(1.0);
+        // progressBars['progress-purchase-min-repayment'].setText("Min Repayment",data.salesInfo.minRepayments);
+      }
+
+      // var financeCheckbox = document.getElementById('finance-house-checkbox');
+      // financeCheckbox.checked = false;
+      // FinanceHouse(financeCheckbox);
+
+      // if (!data.salesInfo.canFinance) {
+      //   $("#finance-house-checkbox-container").css("display","none");
+      // }
+
+      // var depositSlider = document.getElementById('set-purchase-downpayment');
+
+      var minPrice = data.salesInfo.minDeposit + (data.salesInfo.isRealtor ? data.salesInfo.commission : 0);
+      var maxPrice = data.salesInfo.salePrice + (data.salesInfo.isRealtor ? data.salesInfo.commission : 0) - 500;
+      // depositSlider.min = minPrice;
+      // depositSlider.max = maxPrice;
+      // depositSlider.value = minPrice;
+
+      depositSlider.style.background = 'linear-gradient(to right, #3399ff 0%, #0066cc ' + ((maxPrice / 100)/maxPrice*100) + '%, #fff ' + ((maxPrice / 100)/maxPrice*100) + '%, white 100%)';
+    }
+
+    function MoveCommissionSlider(e) {      
+      var value = (e.value-e.min)/(e.max-e.min)*100;
+      e.style.background = 'linear-gradient(to right, #3399ff 0%, #0066cc ' + value + '%, #fff ' + value + '%, white 100%)';
+
+      var pct = parseInt(e.value) / e.max;
+      progressBars['sales-commission-progress'].setValue(pct);
+      progressBars['sales-commission-progress'].setText("Commission",e.value);
+    }
+
+    function MoveMortgageSlider(e) {      
+      var value = (e.value-e.min)/(e.max-e.min)*100;
+      e.style.background = 'linear-gradient(to right, #3399ff 0%, #0066cc ' + value + '%, #fff ' + value + '%, white 100%)';
+
+      var pct = parseInt(e.value) / e.max;
+      progressBars['mortgage-repay-amount'].setValue(pct);
+      progressBars['mortgage-repay-amount'].setText("Repayment",e.value);
+    }
+
+    function MovePriceSlider(e) {      
+      var value = (e.value-e.min)/(e.max-e.min)*100;
+      e.style.background = 'linear-gradient(to right, #3399ff 0%, #0066cc ' + value + '%, #fff ' + value + '%, white 100%)';
+
+      var pct = parseInt(e.value) / e.max;
+      
+      progressBars['sales-price-progress'].setValue(pct);
+
+      // Create our number formatter.
+      var formatter = new Intl.NumberFormat('da-DK', {
+        style: 'currency',
+        currency: 'DKK',
+
+        maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+      });
+
+      var textPrice = formatter.format(e.value);
+
+      progressBars['sales-price-progress'].setText("Price",textPrice);
+
+    }
+
+    function SetPurchaseDownpayment(e) {
+      var value = (e.value-e.min)/(e.max-e.min)*100;
+      var downpaymentSlider = document.getElementById('set-purchase-downpayment');
+      downpaymentSlider.style.background = 'linear-gradient(to right, #3399ff 0%, #0066cc ' + value + '%, #fff ' + value + '%, white 100%)';
+
+      var pct = parseInt(e.value - e.min) / (e.max - e.min);
+      progressBars['progress-purchase-downpayment'].setValue(pct);
+      progressBars['progress-purchase-downpayment'].setText("Downpayment",e.value);
+    }
+
+    function SetDownpayment(e) {
+      var value = (e.value-e.min)/(e.max-e.min)*100;
+      var downpaymentSlider = document.getElementById('set-downpayment');
+      downpaymentSlider.style.background = 'linear-gradient(to right, #3399ff 0%, #0066cc ' + value + '%, #fff ' + value + '%, white 100%)';
+
+      var pct = parseInt(e.value) / e.max;
+      progressBars['progress-downpayment'].setValue(pct);
+      progressBars['progress-downpayment'].setText("Downpayment",e.value);
+    }
+
+    function SetMinRepayment(e) {
+      var value = (e.value-e.min)/(e.max-e.min)*100;
+      var minRepaySlider = document.getElementById('set-min-repayment');
+      minRepaySlider.style.background = 'linear-gradient(to right, #3399ff 0%, #0066cc ' + value + '%, #fff ' + value + '%, white 100%)';
+
+      var pct = parseInt(e.value) / e.max;
+      progressBars['progress-min-repayment'].setValue(pct);
+      progressBars['progress-min-repayment'].setText("Min Repayment",e.value);
+    }
+
+    function SetStreetNumber(e) {
+      $.post(`https://${resourceName}/setStreetNumber`,JSON.stringify({
+        streetNumber:parseInt(e.value)
+      }));
+    }
+
+    function CancelCreation() {
+      $("#creation-panel").css("display","none");
+      $.post(`https://${resourceName}/cancelCreation`);
+    }
+
+    function FinishCreation() {
+      $("#creation-panel").css("display","none");
+
+      var streetNumber = document.getElementById('street-number').value;
+
+      $.post(`https://${resourceName}/finishCreation`,JSON.stringify({
+        streetNumber:parseInt(streetNumber)
+      }));
+    }
+
+    function SetupShell() {
+      $("#creation-panel").css("display","none");
+      $.post(`https://${resourceName}/setupShell`);
+    }
+
+    function SetupPolyZone() {
+      $("#creation-panel").css("display","none");
+      $.post(`https://${resourceName}/setupPolyZone`);
+    }
+
+    function SetupDoors() {
+      $("#creation-panel").css("display","none"); 
+      $.post(`https://${resourceName}/setupDoors`);     
+    }
+
+    function ShowLocksmithPanel(houses) {
+      $("#locksmith-panel").css("display","block");
+
+      var selectHouse = document.getElementById('select-house');
+      selectHouse.innerHTML = "";
+
+      for (var i=0;i<houses.length;i++) {
+        var house = houses[i];
+        var option = document.createElement('OPTION');
+        option.textContent = `${house.houseInfo.streetNumber} ${house.houseInfo.streetName}, ${house.houseInfo.suburb}, ${house.houseInfo.postCode}`; 
+        option.houseId = house.houseId;
+
+        selectHouse.appendChild(option);
+
+        if (i == 0) {
+          option.selected = true;
+        }
+      }
+    }
+
+    function CloseLocksmith() {
+      $("#locksmith-panel").css("display","none");
+      $.post(`https://${resourceName}/closeLocksmith`);
+    }
+
+    function CloseSales() {
+      $("#sales-panel").css("display","none");
+      $.post(`https://${resourceName}/closeSale`);
+    }
+
+    function FinishSale() {
+      $("#sales-panel").css("display","none");
+      
+      var price = document.getElementById('set-price').value;
+      var commission = document.getElementById('set-commission').value;
+      var minRepayment = 0;
+      var downpayment = 0;
+      var canFinance = false;
+
+      $.post(`https://${resourceName}/finishSale`,JSON.stringify({
+        price:parseInt(price),
+        commission:parseInt(commission),
+        canFinance:canFinance,
+        minRepayments:parseInt(minRepayment),
+        minDeposit:parseInt(downpayment)
+      }));
+    }
+
+    function DeclinePurchase() {
+      $("#purchase-panel").css("display","none");
+      $.post(`https://${resourceName}/declinePurchase`);
+    }
+
+    function CloseMortgage() {
+      $("#mortgage-panel").css("display","none");
+      $.post(`https://${resourceName}/closeMortgage`);
+    }
+
+    function PayMortgage() {
+      var payment = document.getElementById('mortgage-payment').value;
+      $("#mortgage-panel").css("display","none");
+      $.post(`https://${resourceName}/payMortgage`,JSON.stringify({
+        payment:parseInt(payment)
+      }));
+    }
+
+    function AcceptPurchase() {
+      $("#purchase-panel").css("display","none");
+      $.post(`https://${resourceName}/acceptPurchase`);
+    }
+
+    function AcceptFinance() {
+      $("#purchase-panel").css("display","none");
+
+      var downpayment = document.getElementById('set-purchase-downpayment').value;
+      $.post(`https://${resourceName}/acceptFinance`,JSON.stringify({
+        downpayment:parseInt(downpayment)
+      }));
+    }
+
+    function NewKey() {
+      $("#locksmith-panel").css("display","none");
+
+      var select = document.getElementById('select-house');
+      var houseId = select.options[select.selectedIndex].houseId;
+
+      $.post(`https://${resourceName}/newKey`,JSON.stringify({
+        houseId:houseId
+      }));
+    }
+
+    function ResetLocks() {
+      $("#locksmith-panel").css("display","none");
+
+      var select = document.getElementById('select-house');
+      var houseId = select.options[select.selectedIndex].houseId;
+
+      $.post(`https://${resourceName}/resetLocks`,JSON.stringify({
+        houseId:houseId
+      }));
+    }
+
+    function SetFinanceable(e) {
+      if (e.checked) {
+        $("#downpayment-slider").css("display","block");
+        $("#min-repayment-slider").css("display","block");
+        $("#finance-progress-bars").css("display","grid");
+      } else {
+        $("#downpayment-slider").css("display","none");
+        $("#min-repayment-slider").css("display","none");
+        $("#finance-progress-bars").css("display","none");
+      }
+    }
+
+    function FinanceHouse(e) {
+      if (e.checked) {
+        $("#purchase-downpayment-slider").css("display","block");
+        $("#purchase-finance-progress-bars").css("display","grid");        
+
+        if ($("#purchase-buttons").hasClass("grid-two")) {
+          $("#purchase-buttons").removeClass("grid-two");
+          $("#purchase-buttons").addClass("grid-three");
+          $("#accept-finance-button").css("display","block");
+        }
+      } else {
+        $("#purchase-downpayment-slider").css("display","none");
+        $("#purchase-finance-progress-bars").css("display","none");
+
+        if ($("#purchase-buttons").hasClass("grid-three")) {
+          $("#purchase-buttons").removeClass("grid-three");
+          $("#purchase-buttons").addClass("grid-two");
+          $("#accept-finance-button").css("display","none");
+        }
+      }
+    }
+
+    CopyMessage = function(text) {      
+      var container = document.getElementById('myInputContainer')
+      var copyText = document.getElementById("myInput")
+      container.style.display = "block"
+      copyText.value = text;
+      copyText.select();
+      document.execCommand("copy");
+      container.style.display = "none"
+    }
+
+    Config = function(data) {
+      minRepayments = data.minMortgageRepayments;
+      maxCommission = data.maxRealtorCommission;
+      resourceName = data.resourceName;
+      maxResalePercent = data.maxResalePercent;
+
+      $.post(`https://${resourceName}/configured`);
+    }
+
+    window.addEventListener('message',function(event) {
+      switch(event.data.type) {
+        case "Copy":
+          CopyMessage(event.data.text)
+        break;
+
+        case "ShowCreationPanel":
+          ShowCreationPanel(event.data.data);
+        break;
+
+        case "ShowLocksmithPanel":
+          ShowLocksmithPanel(event.data.data);
+        break;
+
+        case "ShowSalesPanel":
+          ShowSalesPanel(event.data.data);
+        break;
+
+        case "ShowPurchasePanel":
+          ShowPurchasePanel(event.data.data);
+        break;
+
+        case "ShowMortgagePanel":
+          ShowMortgagePanel(event.data.data);
+        break;
+
+        case "Config":
+          Config(event.data.data);
+        break;
+      } 
+    })
+
+    window.addEventListener('keydown',function(event) {
+      if (event.key == "Tab" || event.key == "tab") {
+        event.preventDefault();
+      }
+    })
+
+    /*
+    Config({
+      minRepayments:500,
+      maxCommission:5000,
+      resourceName:"mf-housing-v3",
+      maxResalePercent:10
+    })
+
+    ShowSalesPanel(
+      {
+        "houseInfo":{"suburb":"Davis","scumminess":5,"streetNumber":523232,"modifier":1.0,"streetName":"Grove St","postCode":70},"shell":{"furniture":"none","useShell":true,"model":"playerhouse_tier1","position":{"x":108.661865234375,"y":-1927.791015625,"z":-6.87982988357543},"heading":-68.42816925048828},"locations":[{"typeof":"entry","position":{"x":99.913818359375,"y":-1933.8140869140626,"z":19.8037109375},"blip":917509,"heading":0.0},{"position":{"x":95.66413116455078,"y":-1936.8009033203126,"z":-4.5398302078247},"typeof":"exit","heading":-68.42816925048828}],"furniture":{"inside":[],"preset":"none","outside":[]},"locked":false,"keys":[],"salesInfo":{"salePrice":15000.0,"societyName":"society_police","isRealtor":true},"doors":[],"houseId":"HcHCR72531","ownerInfo":{"identifier":"1:44fef9329e477259f0feb7c1306c38a8ddae9477","name":"test test"},"polyZone":{}
+      }
+    )*/
+    
+    
+  </script>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6d9f55d44c4e7383',m:'RhTauXBcVf5s30p2GU_HY8g089Yo7ZQjS6w1E8e7lAk-1644265398-0-AbcBCL0MgflImMpbz9Y6LYeY2lxwlk7KMdo1d5WgRmMdttrsU/6ImWzIeA70E1rrU1nq6Kzt38uKes9yLYwFNvZbIpftROSytsUHx4TvKbdBYkvoBYzlvNL94l9Hvspe0TytlUEWNKAdadYj6On5V5ocU50V3a2r9TRtVMaxuBgHBSZ26Qs/xkp7Y79ZpHOBzg==',s:[0x60e19de6f3,0x1ac5008d0b],}})();</script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6d9fa24cddc3d8a1',m:'9sYcUXs1WnD1l5cIFbh8f3n8jwtCZ2HmkGAKo7szN5E-1644268530-0-AbzlAyjy5bSURtC1UxJzoHQg9Gh9oXLCUDGqs7Z79dA9tmeiJpsbWjHIpmAGA5ho6dbfUzKavWypFdL/QiVMGDiepa/5m4GmHa8/9bxdoGpbfqy7W4Ql1NnpaZt/SwBfbsYiD7AzPAm4BC4/zbLC7Y0mOxefsOHTRXbJS/58/fHgyUmx6+SMIrwSE7VJvYqBcw==',s:[0xc03bcc8d71,0x26a47daf4e],}})();</script></body>
+</html>
