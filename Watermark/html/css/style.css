@@ -1,0 +1,25 @@
+body {
+	margin: 1vh;
+}
+
+img {
+	width: 8vh;
+}
+
+p {
+	font-family: Arial;
+	font-weight: 700;
+	font-size: 1.1vh;
+	color: #fff;
+	margin: 0.1vh;
+	text-shadow:
+		1px 1px black,
+		1px -1px black,
+		-1px -1px black,
+		-1px 1px black;
+}
+
+#Watermark-Wrapper {
+	z-index: -1;
+	text-align: center;
+}

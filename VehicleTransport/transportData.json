@@ -1,0 +1,561 @@
+[
+  {
+    "ModelName": "flatbed",
+    "ModelHash": 1353720154,
+    "Min": {
+      "X": -1.3323034,
+      "Y": -6.00453424,
+      "Z": 0.348279834,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "Max": {
+      "X": 1.30291176,
+      "Y": 1.09367943,
+      "Z": 2.59515429,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "RampModelHash": -1061569318,
+    "RampPosition": {
+      "X": 0.0,
+      "Y": -8.995015,
+      "Z": -0.357480764,
+      "IsNormalized": false,
+      "IsZero": false
+    }
+  },
+  {
+    "ModelName": "trflat",
+    "ModelHash": -1352468814,
+    "Min": {
+      "X": -1.30612242,
+      "Y": -6.236106,
+      "Z": 0.318712145,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "Max": {
+      "X": 1.30113137,
+      "Y": 6.00359,
+      "Z": 3.76503778,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "RampModelHash": -1061569318,
+    "RampPosition": {
+      "X": 0.0,
+      "Y": -9.224671,
+      "Z": -0.375247419,
+      "IsNormalized": false,
+      "IsZero": false
+    }
+  },
+  {
+    "ModelName": "benson",
+    "ModelHash": 2053223216,
+    "Min": {
+      "X": -1.2892729,
+      "Y": -5.248108,
+      "Z": 0.038372077,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "Max": {
+      "X": 1.34207714,
+      "Y": 1.25330842,
+      "Z": 2.179366,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "RampModelHash": -1,
+    "RampPosition": {
+      "X": 0.0,
+      "Y": 0.0,
+      "Z": 0.0,
+      "IsNormalized": false,
+      "IsZero": true
+    },
+    "DoorIndex": 5,
+    "DoorPosition": {
+      "X": 0.0,
+      "Y": -6.0,
+      "Z": -1.0,
+      "IsNormalized": false,
+      "IsZero": true
+    }
+  },
+  {
+    "ModelName": "mule",
+    "ModelHash": 904750859,
+    "Min": {
+      "X": -1.26760876,
+      "Y": -3.69422626,
+      "Z": -0.109899186,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "Max": {
+      "X": 1.26071024,
+      "Y": 1.6972723,
+      "Z": 2.381463,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "RampModelHash": -1061569318,
+    "RampPosition": {
+      "X": 0.0,
+      "Y": -7.214459,
+      "Z": -0.8383862,
+      "IsNormalized": false,
+      "IsZero": false
+    }
+  },
+  {
+    "ModelName": "mule2",
+    "ModelHash": -1050465301,
+    "Min": {
+      "X": -1.26009345,
+      "Y": -3.648353,
+      "Z": -0.160312533,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "Max": {
+      "X": 1.258462,
+      "Y": 1.69898462,
+      "Z": 2.39761686,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "RampModelHash": -1061569318,
+    "RampPosition": {
+      "X": 0.0,
+      "Y": -6.76446247,
+      "Z": -0.871376932,
+      "IsNormalized": false,
+      "IsZero": false
+    }
+  },
+  {
+    "ModelName": "mule3",
+    "ModelHash": -2052737935,
+    "Min": {
+      "X": -1.250835,
+      "Y": -3.68534732,
+      "Z": -0.161864653,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "Max": {
+      "X": 1.25250971,
+      "Y": 1.72581077,
+      "Z": 2.40214229,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "RampModelHash": -1061569318,
+    "RampPosition": {
+      "X": 0.0,
+      "Y": -7.20519352,
+      "Z": -0.833472252,
+      "IsNormalized": false,
+      "IsZero": false
+    }
+  },
+  {
+    "ModelName": "mule4",
+    "ModelHash": 1945374990,
+    "Min": {
+      "X": -1.26671791,
+      "Y": -3.66908979,
+      "Z": -0.192200154,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "Max": {
+      "X": 1.27866411,
+      "Y": 1.69456244,
+      "Z": 2.38616157,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "RampModelHash": -1061569318,
+    "RampPosition": {
+      "X": 0.0,
+      "Y": -7.21410561,
+      "Z": -0.8267644,
+      "IsNormalized": false,
+      "IsZero": false
+    }
+  },
+  {
+    "ModelName": "pounder",
+    "ModelHash": 2112052861,
+    "Min": {
+      "X": -1.35408819,
+      "Y": -8.080395,
+      "Z": 0.174088657,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "Max": {
+      "X": 1.38932681,
+      "Y": 0.8511491,
+      "Z": 2.97487688,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "RampModelHash": -1061569318,
+    "RampPosition": {
+      "X": 0.0,
+      "Y": -11.35877,
+      "Z": -0.498934,
+      "IsNormalized": false,
+      "IsZero": false
+    }
+  },
+  {
+    "ModelName": "pounder2",
+    "ModelHash": 1653666139,
+    "Min": {
+      "X": -1.35739207,
+      "Y": -8.097295,
+      "Z": 0.201742068,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "Max": {
+      "X": 1.311559,
+      "Y": 0.8660937,
+      "Z": 3.0226655,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "RampModelHash": -1061569318,
+    "RampPosition": {
+      "X": 0.0,
+      "Y": -11.37564,
+      "Z": -0.471110255,
+      "IsNormalized": false,
+      "IsZero": false
+    }
+  },
+  {
+    "ModelName": "skylift",
+    "ModelHash": 1044954915,
+    "Min": {
+      "X": -3.24511313,
+      "Y": -12.080184,
+      "Z": -2.87071514,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "Max": {
+      "X": 3.20115137,
+      "Y": 2.09432435,
+      "Z": 1.0,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "RampModelHash": -1,
+    "RampPosition": {
+      "X": 0.0,
+      "Y": 0.0,
+      "Z": 0.0,
+      "IsNormalized": false,
+      "IsZero": true
+    }
+  },
+  {
+    "ModelName": "cargoplane",
+    "ModelHash": 368211810,
+    "Min": {
+      "X": -2.866602,
+      "Y": -24.27661,
+      "Z": -4.655035,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "Max": {
+      "X": 2.94584537,
+      "Y": 27.6910667,
+      "Z": 1.0,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "RampModelHash": -1,
+    "RampPosition": {
+      "X": 0.0,
+      "Y": 0.0,
+      "Z": 0.0,
+      "IsNormalized": false,
+      "IsZero": true
+    },
+    "DoorIndex": 2,
+    "DoorPosition": {
+      "X": -2.5,
+      "Y": -27.0,
+      "Z": -5.0,
+      "IsNormalized": false,
+      "IsZero": true
+    }
+  },
+  {
+    "ModelName": "titan",
+    "ModelHash": 1981688531,
+    "Min": {
+      "X": -1.44971037,
+      "Y": -8.34082,
+      "Z": -0.7311101,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "Max": {
+      "X": 1.47252536,
+      "Y": 5.414393,
+      "Z": 1.69288349,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "RampModelHash": -1,
+    "RampPosition": {
+      "X": 0.0,
+      "Y": 0.0,
+      "Z": 0.0,
+      "IsNormalized": false,
+      "IsZero": true
+    },
+    "DoorIndex": 5,
+    "DoorPosition": {
+      "X": -1.5,
+      "Y": -9.0,
+      "Z": -1.0,
+      "IsNormalized": false,
+      "IsZero": true
+    }
+  },
+  {
+    "ModelName": "wastelander",
+    "ModelHash": -1912017790,
+    "Min": {
+      "X": -1.61158574,
+      "Y": -4.221541,
+      "Z": 0.807123661,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "Max": {
+      "X": 1.5986402,
+      "Y": 1.87440789,
+      "Z": 3.08972788,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "RampModelHash": 1290523964,
+    "RampPosition": {
+      "X": 0.0,
+      "Y": -7.219685,
+      "Z": -0.8123476,
+      "IsNormalized": false,
+      "IsZero": false
+    }
+  },
+  {
+    "ModelName": "armytrailer",
+    "ModelHash": -1476447243,
+    "Min": {
+      "X": -1.77091122,
+      "Y": -6.30566454,
+      "Z": -1.21805489,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "Max": {
+      "X": 1.7845304,
+      "Y": 6.30444145,
+      "Z": 2.39600158,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "RampModelHash": -1061569318,
+    "RampPosition": {
+      "X": 0.0,
+      "Y": -9.410691,
+      "Z": -1.94328034,
+      "IsNormalized": false,
+      "IsZero": false
+    }
+  },
+  {
+    "ModelName": "boattrailer",
+    "ModelHash": 524108981,
+    "Min": {
+      "X": -1.11207914,
+      "Y": -3.54622316,
+      "Z": -0.534021556,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "Max": {
+      "X": 1.12335539,
+      "Y": 2.68803453,
+      "Z": 1.719416,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "RampModelHash": -1,
+    "RampPosition": {
+      "X": 0.0,
+      "Y": 0.0,
+      "Z": 0.0,
+      "IsNormalized": false,
+      "IsZero": true
+    }
+  },
+  {
+    "ModelName": "freighttrailer",
+    "ModelHash": -777275802,
+    "Min": {
+      "X": -1.7840997,
+      "Y": -9.296225,
+      "Z": -1.23075783,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "Max": {
+      "X": 1.775745,
+      "Y": 9.29503,
+      "Z": 2.37576938,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "RampModelHash": 1290523964,
+    "RampPosition": {
+      "X": 0.0,
+      "Y": -12.3954191,
+      "Z": -2.84200764,
+      "IsNormalized": false,
+      "IsZero": false
+    }
+  },
+  {
+    "ModelName": "avenger",
+    "ModelHash": -2118308144,
+    "Min": {
+      "X": -1.35115182,
+      "Y": -3.02528477,
+      "Z": -1.84827042,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "Max": {
+      "X": 1.3491863,
+      "Y": 5.93176365,
+      "Z": 0.762521267,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "RampModelHash": -1,
+    "RampPosition": {
+      "X": 0.0,
+      "Y": 0.0,
+      "Z": 0.0,
+      "IsNormalized": false,
+      "IsZero": true
+    },
+    "DoorIndex": 5,
+    "DoorPosition": {
+      "X": -1.0,
+      "Y": -4.0,
+      "Z": -2.0,
+      "IsNormalized": false,
+      "IsZero": true
+    }
+  },
+  {
+    "ModelName": "avenger2",
+    "ModelHash": 408970549,
+    "Min": {
+      "X": -1.34279,
+      "Y": -2.92375517,
+      "Z": -1.74719274,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "Max": {
+      "X": 1.33781886,
+      "Y": 5.90689,
+      "Z": 0.8759499,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "RampModelHash": -1,
+    "RampPosition": {
+      "X": 0.0,
+      "Y": 0.0,
+      "Z": 0.0,
+      "IsNormalized": false,
+      "IsZero": true
+    },
+    "DoorIndex": 5,
+    "DoorPosition": {
+      "X": -1.0,
+      "Y": -4.0,
+      "Z": -2.0,
+      "IsNormalized": false,
+      "IsZero": true
+    }
+  },
+  {
+    "ModelName": "slamtruck",
+    "ModelHash": -1045911276,
+    "Min": {
+      "X": -1.13159323,
+      "Y": -4.33380747,
+      "Z": -0.204333961,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "Max": {
+      "X": 1.162106,
+      "Y": 0.8837402,
+      "Z": 2.08279562,
+      "IsNormalized": false,
+      "IsZero": false
+    },
+    "RampModelHash": -1061569318,
+    "RampPosition": {
+      "X": 0.0,
+      "Y": -7.330452,
+      "Z": -0.8221497,
+      "IsNormalized": false,
+      "IsZero": false
+    }
+  },
+  {
+    "RampModelHash": -1061569318,
+    "RampRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "Max": {
+        "x": 1.30291176,
+        "y": 1.09367943,
+        "z": 2.59515429
+    },
+    "ModelName": "flatbedlsc",
+    "ModelHash": -2135958734,
+    "Min": {
+        "x": -1.3323034,
+        "y": -6.00453424,
+        "z": 0.348279834
+    },
+    "RampPosition": {
+        "x": 0.09816271811723,
+        "y": -8.74688720703125,
+        "z": -0.32385060191154
+    }
+  }
+]

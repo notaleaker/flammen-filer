@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="Watermark-Wrapper">
+        <img src="https://cdn.discordapp.com/attachments/868184421881245716/1043966218295578774/FlammenRPUdenbg.png">
+
+        <p id="Watermark-Time">
+
+        </p>
+
+        <p id="Watermark-Players">
+
+        </p>
+    </div>
+
+    <script>
+        (() => {
+            const Wrapper = document.getElementById('Watermark-Wrapper');
+            const TimeElm = document.getElementById('Watermark-Time');
+            const PlayersElm = document.getElementById('Watermark-Players');
+
+            setInterval(() => {
+                const CurrentDate = new Date();
+                TimeElm.textContent = `${('0' + CurrentDate.getDate()).slice(-2)}/${('0' + (CurrentDate.getMonth() + 1)).slice(-2)} ${('0' + CurrentDate.getHours()).slice(-2)}:${('0' + CurrentDate.getMinutes()).slice(-2)}`;
+            }, 500);
+
+            window.addEventListener('message', e => {
+                if (e.data.show !== undefined) {
+                    Wrapper.style.display = e.data.show ? 'block' : 'none';
+                }
+
+                if (e.data.text !== undefined) {
+                    PlayersElm.textContent = e.data.text;
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>
