@@ -1,0 +1,61 @@
+<!doctype html5>
+<html>
+    <head>
+        <title>Box</title>
+        <link rel="stylesheet" href="css/stylesheet.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap">
+    </head>
+    <body>
+        <svg style="position: absolute;opacity: 0;top: -100vh;">
+            <defs>
+                <clipPath id="arrow" clipPathUnits="objectBoundingBox">
+                    <path d="M1,0.25L0.25,0.4375Q0,0.5,0.25,0.5625L1,0.75"/>
+                </clipPath>
+            </defs>
+        </svg>
+        <div id="container">
+
+        </div>
+        <script>
+            const Container = document.getElementById('container');
+            let Boxes = {};
+            window.addEventListener('message', event => {
+                if(event.data.action == "show"){
+                    if (Boxes[event.data.invokingResource] != undefined) {
+                        Boxes[event.data.invokingResource]++;
+                    } else {
+                        Boxes[event.data.invokingResource] = Number.MIN_SAFE_INTEGER;
+                    }
+
+                    let Box = document.getElementById(`box_-_-_${event.data.invokingResource}`);
+                    if (Box === null) {
+                        Container.insertAdjacentHTML('beforeend', `
+                            <div class="drawtext_box drawtext_box-left" id="box_-_-_${event.data.invokingResource}">
+                                <div class="drawtext_box_arrow"></div>
+                                <div class="drawtext_box_text">
+                                    <p>${event.data.text}</p>
+                                </div>
+                            </div>
+                        `);
+                    } else {
+                        Box.lastElementChild.lastElementChild.textContent = event.data.text;
+                        Box.classList.add('drawtext_box-left');
+                    }
+                } else if(event.data.action == "hide"){
+                    if (Boxes[event.data.invokingResource] != undefined) {
+                        let Box = document.getElementById(`box_-_-_${event.data.invokingResource}`);
+                        if (Box !== null) {
+                            let BoxesIndex = Boxes[event.data.invokingResource];
+                            Box.classList.remove('drawtext_box-left');
+                            setTimeout(() => {
+                                if (Boxes[event.data.invokingResource] == BoxesIndex) {
+                                    Box.remove();
+                                }
+                            }, 500);
+                        }
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

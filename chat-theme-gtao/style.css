@@ -1,0 +1,211 @@
+@import url('https://use.fontawesome.com/releases/v5.6.3/css/all.css');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+.color-0 {
+    color: #ffffff;
+}
+
+.color-1 {
+    color: #ffffff;
+}
+
+.color-2 {
+    color: #ffffff;
+}
+
+.color-3 {
+    color: #ffffff;
+}
+
+.color-4 {
+    color: #ffffff;
+}
+
+.color-5 {
+    color: #ffffff;
+}
+
+.color-6 {
+    color: #ffffff;
+}
+
+.color-8 {
+    color: #ffffff;
+}
+
+.color-9 {
+    color: #ffffff;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+.testing {
+    display: inline-block !important;
+}
+
+.no-grow {
+    flex-grow: 0;
+}
+
+em {
+    font-style: normal;
+}
+
+#app {
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: white;
+    background-color: transparent;
+    margin-top: 0px !important;
+    font-weight: 400;
+}
+
+.chat-window {
+    position: absolute;
+    width: 20% !important;
+    left: 10;
+    top: 10;
+    height: 220px !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+    -webkit-animation-duration: 2s;
+}
+
+@media screen and (min-width: 1921px) {
+    .chat-window {
+        position: absolute;
+        width: 24% !important;
+        left: 10;
+        top: 10;
+        height: 220px !important;
+        background-color: rgba(0, 0, 0, 0) !important;
+        -webkit-animation-duration: 2s;
+    }
+}
+@media screen and (max-width: 1920px) {
+    .chat-window {
+        position: absolute;
+        display:inline;
+        width: 20% !important;
+        left: 10;
+        top: 10;
+        height: 220px !important;
+        background-color: rgba(0, 0, 0, 0) !important;
+        -webkit-animation-duration: 2s;
+    }
+}
+
+.chat-messages {
+    position: relative;
+    height: 95%;
+    font-size: 1.0rem;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.chat-input {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    bottom: calc(0.56vw);
+    width: 25% !important;
+    background: inherit !important;
+    text-align: right;
+    top: auto;
+    height: auto;
+    font-family: Font2, sans-serif;
+}
+
+.chat-input>div {
+    background-color: rgba(0, 0, 0, .6);
+    padding: calc(0.15625vw / 2);
+}
+
+.chat-input .prefix {
+    margin: 0;
+    margin-left: 0.7%;
+    margin-top: -0.1%;
+    display: none;
+}
+
+.chat-input>div+div {
+    position: absolute;
+    bottom: calc(1.65vh + 0.15625vw + 0.15625vw + 0.15625vw + (0.15625vw / 2));
+    width: 99.6%;
+    text-align: left;
+}
+
+.suggestions {
+    border: calc(0.15625vw / 2) solid rgba(180, 180, 180, .6);
+    background: transparent;
+}
+
+textarea {
+    font-size: 1.0rem;
+    display: block;
+    box-sizing: border-box;
+    padding: 5px;
+    color: white;
+    background-color: rgba(207, 227, 114, 0);
+    width: 100%;
+    border-width: 0;
+    height: 30%;
+    overflow: hidden;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+.msg {
+    margin-bottom: 2px;
+}
+
+.twitter {
+    height: 10%;
+    width: 90%;
+    background: #ffbb33;
+    border-radius: 2px;
+    color: #0000;
+}
+
+.multiline {
+    margin-left: 1.5rem;
+    text-indent: -1.5rem;
+    white-space: pre-line;
+}
+
+.suggestions {
+    list-style-type: none;
+    padding: 5px;
+    padding-left: 27px;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    color: white;
+    background-color: rgba(207, 227, 114, 0);
+    width: 100%;
+}
+
+.help {
+    color: #b0bbbd;
+}
+
+.disabled {
+    color: #b0bbbd;
+}
+
+.suggestion {
+    margin-bottom: 5px;
+}
+
+span.hugeletter:first-letter {
+    text-transform: uppercase !important;
+}

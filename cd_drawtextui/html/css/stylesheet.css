@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+@keyframes leftright {
+  0% {--animleft: 0;}
+  50% {--animleft: -0.25vh;}
+  100% {--animleft: -0.5vh;}
+}
+
+@keyframes animbox {
+    0% {margin-left: calc(-2px - var(--containerleft) - var(--totalwidth));}
+    100% {margin-left: 0;}
+}
+
+#container {
+    --containerleft: 1.5vh;
+    position: absolute;
+    width: 40vh;
+    height: 100vh;
+    left: var(--containerleft);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2vh;
+    animation: leftright .5s linear 0s infinite alternate;
+}
+
+.drawtext_box.drawtext_box-left {
+    margin-left: 0;
+}
+
+.drawtext_box {
+	--totalwidth: 40vh;
+	--totalheight: 3.45vh;
+	--borderradius: 0.4vh;
+	--arrowwidht: 1vh;
+	width: var(--totalwidth);
+	height: var(--totalheight);
+	display: flex;
+    margin-left: calc(-2px - var(--containerleft) - var(--totalwidth));
+	transition: margin-left 0.85s;
+    animation: animbox 0.85s;
+}
+
+.drawtext_box_arrow {
+    width: var(--arrowwidht);
+    height: var(--totalheight);
+    display: flex;
+    align-items: center;
+    background: linear-gradient(180deg, #09f 0%, #32adff 100%);
+    clip-path: url(#arrow);
+    position: relative;
+    margin-right: 0.5vh;
+    transform: rotate(180deg);
+    left: var(--animleft);
+}
+
+.drawtext_box_text {
+	max-width: calc(var(--totalwidth) - var(--arrowwidht) - 3.5vh);
+	border-radius: var(--borderradius);
+	background: linear-gradient(180deg, #09f 0%, #32adff 100%);
+    padding: 0 1.5vh;
+}
+
+    .drawtext_box_text p {
+        color: #fff;
+        font-family: 'Roboto Condensed', sans-serif;
+        font-size: 1.35vh;
+        line-height: var(--totalheight);
+        text-align: center;
+        margin: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
