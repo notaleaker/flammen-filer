@@ -1,0 +1,127 @@
+{
+  "modal": {
+    "save": {
+      "title": "Gem tilpasning",
+      "description": "Vises inde på serveren"
+    },
+    "exit": {
+      "title": "Afslut tilpasning",
+      "description": "Der gemmes ingen ændringer"
+    },
+    "accept": "Ja",
+    "decline": "Nej"
+  },
+  "ped": {
+    "title": "Ped",
+    "model": "Model"
+  },
+  "headBlend": {
+    "title": "Arv",
+    "shape": {
+      "title": "Face",
+      "firstOption": "Far",
+      "secondOption": "Mor",
+      "mix": "Mix"
+    },
+    "skin": {
+      "title": "Skin",
+      "firstOption": "Far",
+      "secondOption": "Mor",
+      "mix": "Mix"
+    }
+  },
+  "faceFeatures": {
+    "title": "Ansigtsfunktioner",
+    "nose": {
+      "title": "Næse",
+      "width": "Bredde",
+      "height": "Højde",
+      "size": "Størrelse",
+      "boneHeight": "Knoglehøjde",
+      "boneTwist": "Knogle twist",
+      "peakHeight": "Tophøjde"
+    },
+    "eyebrows": {
+      "title": "Øjenbryn",
+      "height": "Højde",
+      "depth": "Dybde"
+    },
+    "cheeks": {
+      "title": "Kinder",
+      "boneHeight": "Knoglehøjde",
+      "boneWidth": "Knoglebredde",
+      "width": "Dybde"
+    },
+    "eyesAndMouth": {
+      "title": "Øjne og mund",
+      "eyesOpening": "Øjnene åbner",
+      "lipsThickness": "Læbetykkelse"
+    },
+    "jaw": {
+      "title": "Kæbe",
+      "width": "Bredde",
+      "size": "Størrelse"
+    },
+    "chin": {
+      "title": "Hage",
+      "lowering": "Sænkning",
+      "length": "Længde",
+      "size": "Størrelse",
+      "hole": "Hulstørrelse"
+    },
+    "neck": {
+      "title": "Hals",
+      "thickness": "Tykkelse"
+    }
+  },
+  "headOverlays": {
+    "title": "Udseende",
+    "hair": {
+      "title": "Hår",
+      "style": "Stil",
+      "color": "Farve",
+      "highlight": "Fremhæve"
+    },
+    "opacity": "Opacity",
+    "style": "Style",
+    "color": "Farve",
+    "blemishes": "Pletter",
+    "beard": "Skæg",
+    "eyebrows": "Øjenbryn",
+    "ageing": "Aldring",
+    "makeUp": "Make up",
+    "blush": "Blush",
+    "complexion": "Teint",
+    "sunDamage": "Solskader",
+    "lipstick": "Læbestift",
+    "moleAndFreckles": "Muldvarp og fregner",
+    "chestHair": "Brysthår",
+    "bodyBlemishes": "Krops pletter",
+    "eyeColor": "Øjenfarve"
+  },
+  "components": {
+    "title": "Klædeskab",
+    "drawable": "Nummer",
+    "texture": "Texture",
+    "mask": "Maske",
+    "upperBody": "Arme",
+    "lowerBody": "Bukser",
+    "bags": "Taske",
+    "shoes": "Sko",
+    "scarfAndChains": "halls tilbehør",
+    "shirt": "T-Shirt",
+    "bodyArmor": "Skudsikkervest",
+    "decals": "Decals",
+    "jackets": "Jakker"
+  },
+  "props": {
+    "title": "Rekvisitter",
+    "drawable": "Nummer",
+    "texture": "Texture",
+    "hats": "Hatte og hjelme",
+    "glasses": "Briller",
+    "ear": "Øre",
+    "watches": "Ure",
+    "bracelets": "Armbånd"
+  }
+}
